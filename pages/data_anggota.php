@@ -16,7 +16,7 @@ if(! $ambildata )
 {
   die('Gagal ambil data: ' . mysql_error());
 }
-echo "<table border='1'><tr><th>ID</th><th>NAK</th><th>NAMA</th><th>NIK</th></tr>";
+echo "<table border='1' class='table-responsive table-bordered table'><tr><th>ID</th><th>NAK</th><th>NAMA</th><th>NIK</th></tr>";
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {
     echo "<tr><td>{$row['id']}</td><td>{$row['nak']}</td><td>{$row['nama']}</td>
