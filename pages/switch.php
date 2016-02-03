@@ -15,6 +15,12 @@ $link = $_GET['id'];
 	case 4 :
 	include "kehadiran2.php";
 	break;
+	case 5 :
+	include "proseslogin.php";
+	break;
+	case 6 :
+	include "kehadiran3.php";
+	break;
 	default :
 	include "kehadiran.php";
 	break;

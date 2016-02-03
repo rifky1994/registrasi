@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(isset($_SESSION['login']))
+{
+
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 ?>
 <html lang="en">
@@ -125,3 +129,11 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 </body>
 
 </html>
+<?php
+}
+else
+{
+echo "gagal";
+    include "login.html";
+}
+?>

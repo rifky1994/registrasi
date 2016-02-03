@@ -5,60 +5,111 @@ $dbpass = '';
 $koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
 $konek = mysqli_connect('localhost','root','','registrasi');
 
-$tanggal = date("Y-m-d");
-$jam = gmdate("H:i:s",time()+60*60*7);
-$tanggaljam = $tanggal." ".$jam;
+
+			 
+
+
+
 
 	if (isset($_POST['tambah'])) 
 	{
 	$nak= $_POST['nak'];
 	$status= $_POST['status'];
 
-	if ($status=="hadir")
+	if ($status=="HADIR")
 	{
-
-			if(! $koneksi )
+		$sql4 = "SELECT status from kehadiran where temp=1 and user='$_SESSION[nama]'";
+		$ambildata4 = mysqli_query( $konek,$sql4);
+		while($rows = mysqli_fetch_array($ambildata4, MYSQL_ASSOC))
 		{
-		  die('Gagal Koneksi: ' . mysql_error());
+			$statuss=$rows['status'];
 		}
-				
-		$insert = "INSERT INTO kehadiran (nak,status,temp,user,waktu,id_kuasa) values ('$nak','$status',1,'mira','$tanggaljam',$nak)";
-		$sql=mysqli_query($konek,$insert);
-			if ($sql)
+			if ($statuss == "HADIR")
 				{
-					
+					?>
+					<SCRIPT LANGUAGE="JavaScript">
+					window.alert ("Data Hadir Sudah Ada, Hanya Dapat Memasukan Status Kuasa !!!");
+					window.location.href="?id=1";
+					</SCRIPT>
+					<?php
 				}
-			else
+				else
 				{
-					echo "gagal insert";
+
+						$sql5 = "SELECT * from kuasa where nak=$nak";
+						$ambildata5 = mysqli_query( $konek,$sql5);
+						$rows = mysqli_fetch_array($ambildata5, MYSQL_ASSOC);
+						if ($rows == null)
+						{	
+
+
+							if(! $koneksi )
+							{
+							  die('Gagal Koneksi: ' . mysql_error());
+							}
+									
+							$insert = "INSERT INTO kehadiran (nak,status,temp,user,id_kuasa) values ('$nak','$status',1,'$_SESSION[nama]',$nak)";
+							$sql=mysqli_query($konek,$insert);
+								if ($sql)
+									{
+										include "kehadiran.php";
+									}
+								else
+									{
+										echo "gagal insert";
+									}
+						}
+						else
+						{
+							?>
+							<SCRIPT LANGUAGE="JavaScript">
+							window.alert ("Anggota sudah melakukan Absen !!!");
+							window.location.href="?id=1";
+							</SCRIPT>
+							<?php
+						}
 				}
 
 	}
-	else
+	else if ($status=="KUASA")
 	{
 			
-			$sql3 = "SELECT id_kuasa from kehadiran where temp=1 and user='mira'";
+			$sql3 = "SELECT id_kuasa from kehadiran where temp=1 and user='$_SESSION[nama]'";
 			$ambildata3 = mysqli_query( $konek,$sql3);
 			while($row = mysqli_fetch_array($ambildata3, MYSQL_ASSOC))
 			{
 				$id_kuasa=$row['id_kuasa'];
 			} 
 			
+			$sql6 = "SELECT * from kehadiran where nak=$nak";
+			$ambildata6 = mysqli_query( $konek,$sql6);
+			$rows = mysqli_fetch_array($ambildata6, MYSQL_ASSOC);
+			if ($rows == null)
+			{	
 
-
-		$insert = "INSERT INTO kuasa (nak,status,temp,user,waktu,id_kuasa) values ('$nak','$status',1,'mira','$tanggaljam',$id_kuasa)";
-		$sql=mysqli_query($konek,$insert);
-			if ($sql)
-				{
-					
-				}
+				$insert = "INSERT INTO kuasa (nak,status,temp,user,id_kuasa) values ('$nak','$status',1,'$_SESSION[nama]',$id_kuasa)";
+				$sql=mysqli_query($konek,$insert);
+				if ($sql)
+					{
+						include "kehadiran.php";	
+					}
+				else
+					{
+						echo "gagal insert";
+					}
+			}
 			else
-				{
-					echo "gagal insert";
-				}
-
+			{
+				?>
+				<SCRIPT LANGUAGE="JavaScript">
+				window.alert ("Anggota sudah melakukan Absen !!!");
+				window.location.href="?id=1";
+				</SCRIPT>
+				<?php
+			}
 
 	}
+	else {}
 
 
 		
