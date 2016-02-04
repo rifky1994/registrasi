@@ -20,4 +20,21 @@ if (isset($_POST['simpan']))
 		include "kehadiran.php";
 	}
 
+	else  if (isset($_POST['hapus']))
+	{
+		$hapus = $_POST['hapus_anggota'];
+
+
+		$sql7 = "delete from kuasa where nak=$hapus and user='$_SESSION[nama]' and temp=1 ";
+		$eksekusi = mysqli_query($konek,$sql7);
+		if(! $eksekusi )
+		{
+		$sql8 = "delete from kehadiran where nak=$hapus and user='$_SESSION[nama]' and temp=1 ";
+		$eksekusi = mysqli_query($konek,$sql8);
+		}
+		
+	}
+	else
+	{}
+
 ?>

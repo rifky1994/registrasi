@@ -91,6 +91,9 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                         <li>
                             <a href="?id=3"><i class="fa fa-dashboard fa-fw"></i> Data Anggota</a>
                         </li>
+                        <li>
+                            <a href="?id=7"><i class="fa fa-dashboard fa-fw"></i> Laporan Kehadiran</a>
+                        </li>
                         
                     </ul>
                 </div>
@@ -133,7 +136,6 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 }
 else
 {
-echo "gagal";
     include "login.html";
 }
 ?>

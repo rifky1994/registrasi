@@ -21,6 +21,9 @@ $link = $_GET['id'];
 	case 6 :
 	include "kehadiran3.php";
 	break;
+	case 7:
+	include "laporan.php";
+	break;
 	default :
 	include "kehadiran.php";
 	break;

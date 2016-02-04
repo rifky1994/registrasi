@@ -62,7 +62,7 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 	<td>{$row['nak']}</td>
 	<td>{$row['nama']}</td>
 	<td>{$row['status']}</td>
-	<td><input type='submit' name='hapus' id='{$row['nak']}' value='Hapus' class='btn btn-lg btn-success btn-block'></td>
+	<td><input type='radio' name='hapus_anggota' value='{$row['nak']}'></td>
 		
 	
 
@@ -88,7 +88,7 @@ while($row = mysql_fetch_array($ambildata2, MYSQL_ASSOC))
 	<td>{$row['nak']}</td>
 	<td>{$row['nama']}</td>
 	<td>{$row['status']}</td>
-	<td><input type='submit' name='hapus' id='{$row['nak']}' value='Hapus' class='btn btn-lg btn-success btn-block'></td>
+	<td><input type='radio' name='hapus_anggota' value='{$row['nak']}'></td>
 		
 	
 
@@ -97,7 +97,11 @@ while($row = mysql_fetch_array($ambildata2, MYSQL_ASSOC))
 } 
 
  
-echo "</table>";
+
 
 ?>
+<tr><td colspan="3">
 <input  class='btn btn-lg btn-success btn-block' type='submit' name='simpan' value='Simpan Absensi' onclick="return confirm('Absensi Selesai?')"/>
+</td>
+<td><input size="20px" maxlength="20px" class='btn btn-lg btn-success btn-block' type='submit' name='hapus' value='Hapus Kehadiran' onclick="return confirm('Akan dihapus?')"/></td></tr>
+</table>

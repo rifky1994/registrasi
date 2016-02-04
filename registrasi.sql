@@ -43,12 +43,13 @@ CREATE TABLE `kehadiran` (
   `user` varchar(30) NOT NULL,
   `temp` int(1) NOT NULL,
   `id_kuasa` int(11) NOT NULL,
+  `no_kupon` int(11) NOT NULL,
   PRIMARY KEY (`nak`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `kehadiran` */
 
-insert  into `kehadiran`(`waktu`,`nak`,`status`,`user`,`temp`,`id_kuasa`) values ('2016-02-03 12:12:53',955,'hadir','mira',1,955),('2016-02-03 12:02:06',3473,'hadir','mira',1,3473);
+insert  into `kehadiran`(`waktu`,`nak`,`status`,`user`,`temp`,`id_kuasa`,`no_kupon`) values ('2016-02-03 22:17:48',646,'HADIR','METI KURNIASIH',0,646,0),('0000-00-00 00:00:00',1727,'HADIR','METI KURNIASIH',1,1727,0),('2016-02-03 21:35:16',9012,'HADIR','METI KURNIASIH',0,9012,0);
 
 /*Table structure for table `kuasa` */
 
@@ -61,12 +62,13 @@ CREATE TABLE `kuasa` (
   `user` varchar(50) NOT NULL,
   `waktu` datetime NOT NULL,
   `temp` int(1) NOT NULL,
+  `no_kupon` int(11) NOT NULL,
   PRIMARY KEY (`nak`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `kuasa` */
 
-insert  into `kuasa`(`id_kuasa`,`nak`,`status`,`user`,`waktu`,`temp`) values (3473,646,'kuasa','mira','2016-02-03 12:11:07',1),(3473,1727,'KUASA','mira','2016-02-03 12:16:41',1),(3473,2959,'kuasa','mira','2016-02-03 12:10:52',1),(3473,9019,'kuasa','mira','2016-02-03 12:12:42',1);
+insert  into `kuasa`(`id_kuasa`,`nak`,`status`,`user`,`waktu`,`temp`,`no_kupon`) values (1727,479,'KUASA','METI KURNIASIH','0000-00-00 00:00:00',1,0),(1727,634,'KUASA','METI KURNIASIH','0000-00-00 00:00:00',1,0),(9012,2959,'KUASA','METI KURNIASIH','2016-02-03 21:35:16',0,0),(9012,3473,'KUASA','METI KURNIASIH','2016-02-03 21:35:16',0,0),(646,9019,'KUASA','METI KURNIASIH','2016-02-03 22:17:48',0,0);
 
 /*Table structure for table `user` */
 
