@@ -1,38 +1,41 @@
 <?php
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
-$koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
-$konek = mysqli_connect('localhost','root','','registrasi');
+	$dbhost = 'localhost';
+	$dbuser = 'root';
+	$dbpass = '';
+	$koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
+	$konek = mysqli_connect('localhost','root','','registrasi');
 
-$sql4 = "SELECT status from kehadiran where temp=1 and user='$_SESSION[nama]'";
+	$sql4 = "SELECT status from kehadiran where temp=1 and user='$_SESSION[nama]'";
 		$ambildata4 = mysqli_query( $konek,$sql4);
 		while($rows = mysqli_fetch_array($ambildata4, MYSQL_ASSOC))
 		{
 			$statuss=$rows['status'];
 		}
-
 ?>
 
-<h1 class="page-header">Absensi</h1>
-<form action="?id=4" method="post">
-	<table>
-		<tr><td>NAK</td><td>&nbsp;&nbsp;</td><td>:</td><td>&nbsp;&nbsp;</td><td><input type="text" name="nak" size="10"></td><td>&nbsp;&nbsp;&nbsp;</td>
-		<td>Status</td><td>&nbsp;&nbsp;</td><td>:</td><td>	<select name="status">
-											<?php if ($statuss=="HADIR") {} else {?>
-											<option name="hadir" value="HADIR">HADIR</option>
-											<?php }?>
-											<option name="kuasa" value="KUASA">KUASA</option>
-										</select></td><td>&nbsp;&nbsp;</td><td><input  class='btn btn-lg btn-success btn-block' size="20px" type="submit" name="tambah" value="Tambah Absensi" /></td></tr>
-	</table>
-</form>
+<center>
+	<h1 class="page-header">Absensi</h1>
+	<form action="?id=4" method="post">
+		<table>
+			<tr><td><input type="text" name="nak" size="25" class="form-control" placeholder="NAK"></td><td class="col-md-2"></td>
+			<td></td><td>	<select class="form-control" name="status">
+												<?php if ($statuss=="HADIR") {} else {?>
+												<option name="hadir" value="HADIR">HADIR</option>
+												<?php }?>
+												<option name="kuasa" value="KUASA">KUASA</option>
+		</table>
+		<br>
+		</select></td><td><input class='btn btn-success' size="20px" type="submit" name="tambah" value="Tambah Absensi" /></td></tr>
+	</form>
+</center>
+<hr>
 
 
 <?php
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
-$koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
+	$dbhost = 'localhost';
+	$dbuser = 'root';
+	$dbpass = '';
+	$koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
 if(! $koneksi )
 {
   die('Gagal Koneksi: ' . mysql_error());
@@ -97,11 +100,9 @@ while($row = mysql_fetch_array($ambildata2, MYSQL_ASSOC))
 } 
 
  
-
-
 ?>
-<tr><td colspan="3">
-<input  class='btn btn-lg btn-success btn-block' type='submit' name='simpan' value='Simpan Absensi' onclick="return confirm('Absensi Selesai?')"/>
+<tr align="center"><td colspan="3">
+<input  class='btn btn-success' type='submit' name='simpan' value='Simpan Absensi' onclick="return confirm('Absensi Selesai?')"/>
 </td>
-<td><input size="20px" maxlength="20px" class='btn btn-lg btn-success btn-block' type='submit' name='hapus' value='Hapus Kehadiran' onclick="return confirm('Akan dihapus?')"/></td></tr>
+<td><input class='btn btn-success' type='submit' name='hapus' value='Hapus Kehadiran' onclick="return confirm('Akan dihapus?')"/></td></tr>
 </table>
