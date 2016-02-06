@@ -24,6 +24,18 @@ $link = $_GET['id'];
 	case 7:
 	include "laporan.php";
 	break;
+	case 8:
+	include "upload_data_anggota.php";
+	break;
+	case 9:
+	include "ekspor_data_anggota.php";
+	break;
+	case 10:
+	include "profil.php";
+	break;
+	case 11:
+	include "updateprofil.php";
+	break;
 	default :
 	include "kehadiran.php";
 	break;

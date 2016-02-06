@@ -43,15 +43,13 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i> <?php echo $_SESSION['nama']; ?> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="?id=10"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -62,10 +60,21 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                     <ul class="nav" id="side-menu">
                         <li><br><br></li>
                         <li>
-                            <a href="?id=1"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="?id=1"><i class="fa fa-dashboard fa-fw"></i> Absensi</a>
                         </li>
                         <li>
-                            <a href="?id=3"><i class="fa fa-dashboard fa-fw"></i> Data Anggota</a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Data Anggota<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                <a href="?id=3">Lihat Data Anggota</a>
+                                </li>
+                                <li>
+                                <a href="?id=8">Upload Data Anggota</a>
+                                </li>
+                                <li>
+                                <a href="?id=9">Ekspor Data Anggota</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="?id=7"><i class="fa fa-dashboard fa-fw"></i> Laporan Kehadiran</a>
