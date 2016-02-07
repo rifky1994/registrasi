@@ -1,7 +1,7 @@
 <?php 
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
  ?>
-<h1 class="page-header">Upload Data Anggota</h1>
+<h1 class="page-header"><center>Upload Data Anggota</center></h1>
 <h3>Ketentuan Upload Data</h3>
 <ul>  <li>Data berupa excel dengan extensi *.xls (1997-2003)</li>
       <li>Baris pertama berisikan header tabel, secara berurutan id,nik,nama,nak</li>
@@ -9,9 +9,11 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
       <li>Untuk Kolom ke 5 (setelah kolom nak) akan diabaikan</li>
 </ul>
 <form name="myForm" id="myForm" onSubmit="return validateForm()" method="post" enctype="multipart/form-data">
-    <input type="file" id="filepegawaiall" name="filepegawaiall" />
-    <input type="submit" name="submit" value="Import" /><br/>
-    <label><input type="checkbox" name="drop" value="1" /> <u>Kosongkan tabel sql terlebih dahulu.</u> </label>
+    <input type="file" id="filepegawaiall" name="filepegawaiall">
+    <br>
+    <input type="submit" name="submit" value="Import">
+    <br>
+    <label><input type="checkbox" name="drop" value="1" /> <u>Kosongkan table di database terlebih dahulu.</u> </label>
 </form>
 <?php 
 if (isset($_POST['submit'])) {
