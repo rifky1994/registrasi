@@ -4,7 +4,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 mysql_connect("localhost","root","");
 mysql_select_db("registrasi");
 
-$sql = mysql_query("SELECT anggota.id,kehadiran.nak,nama,nik,status,no_kupon,id_kuasa,user from kehadiran join anggota using (nak) order by id");
+$sql = mysql_query("SELECT anggota.id,kehadiran.nak,nama,nik,status,no_kupon,id_kuasa,user,waktu from kehadiran join anggota using (nak) order by id");
 $data = array();
 while ($row = mysql_fetch_assoc($sql))
 {
@@ -20,9 +20,10 @@ $header = array (
 	array("label"=>"NAMA","length"=>35,"align"=>"L"),
 	array("label"=>"NIK","length"=>15,"align"=>"L"),
 	array("label"=>"Status","length"=>20,"align"=>"L"),
-	array("label"=>"No Kupon","length"=>35,"align"=>"L"),
+	array("label"=>"No Kupon","length"=>23,"align"=>"L"),
 	array("label"=>"ID kuasa","length"=>15,"align"=>"L"),
 	array("label"=>"User","length"=>35,"align"=>"L"),
+	array("label"=>"Waktu","length"=>35,"align"=>"L"),
 	);
 
 require_once ("fpdf/fpdf.php");
@@ -58,7 +59,7 @@ foreach ($data as $baris)
 	$pdf -> Ln();
 }
 
-$sql2 = mysql_query("SELECT anggota.id,kuasa.nak,nama,nik,status,no_kupon,id_kuasa,user from kuasa join anggota using (nak) order by anggota.id");
+$sql2 = mysql_query("SELECT anggota.id,kuasa.nak,nama,nik,status,no_kupon,id_kuasa,user,waktu from kuasa join anggota using (nak) order by anggota.id");
 $data2 = array();
 while ($row2 = mysql_fetch_assoc($sql2))
 {

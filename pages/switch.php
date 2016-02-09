@@ -36,6 +36,13 @@ $link = $_GET['id'];
 	case 11:
 	include "updateprofil.php";
 	break;
+	case 12:
+	include "print_bukti_pembayaran.php";
+	break;
+	case 13:
+	include "print_bukti.php";
+	break;
+	
 	default :
 	include "kehadiran.php";
 	break;

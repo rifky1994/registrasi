@@ -6,10 +6,6 @@ $koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
 $konek = mysqli_connect('localhost','root','','registrasi');
 
 
-			 
-
-
-
 
 	if (isset($_POST['tambah'])) 
 	{

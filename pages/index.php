@@ -16,7 +16,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+   
     <title>Kopegtel Registrasi</title>
 
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -78,6 +78,9 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                         </li>
                         <li>
                             <a href="?id=7"><i class="fa fa-dashboard fa-fw"></i> Laporan Kehadiran</a>
+                        </li>
+                         <li>
+                            <a href="?id=12"><i class="fa fa-dashboard fa-fw"></i>Cetak Bukti Pembayaran</a>
                         </li>
                         
                     </ul>
