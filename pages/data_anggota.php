@@ -1,4 +1,4 @@
-<h1 class="page-header">Data Anggota</h1>
+<h1 class="page-header"><center>Data Anggota</center></h1>
 <?php
 $dbhost = 'localhost';
 $dbuser = 'root';

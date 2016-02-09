@@ -39,11 +39,11 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 
     <div id="wrapper">
 
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <?php echo $_SESSION['nama']; ?> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i><b> <?php echo $_SESSION['nama']; ?> </b><i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="?id=10"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -60,24 +60,24 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                     <ul class="nav" id="side-menu">
                         <li><br><br></li>
                         <li>
-                            <a href="?id=1"><i class="fa fa-dashboard fa-fw"></i> Absensi</a>
+                            <a href="?id=1"><i class="fa fa-dashboard fa-fw"></i><b> Absensi</b></a>
                         </li>
                         <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Data Anggota<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i><b> Data Anggota</b><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                <a href="?id=3">Lihat Data Anggota</a>
+                                <a href="?id=3"><b>Lihat Data Anggota</b></a>
                                 </li>
                                 <li>
-                                <a href="?id=8">Upload Data Anggota</a>
+                                <a href="?id=8"><b>Upload Data Anggota</b></a>
                                 </li>
                                 <li>
-                                <a href="?id=9">Ekspor Data Anggota</a>
+                                <a href="?id=9"><b>Ekspor Data Anggota</b></a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="?id=7"><i class="fa fa-dashboard fa-fw"></i> Laporan Kehadiran</a>
+                            <a href="?id=7"><i class="fa fa-dashboard fa-fw"></i><b> Laporan Kehadiran</b></a>
                         </li>
                          <li>
                             <a href="?id=12"><i class="fa fa-dashboard fa-fw"></i>Cetak Bukti Pembayaran</a>

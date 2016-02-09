@@ -1,4 +1,4 @@
-<h1 class="page-header">Profil</h1>
+<h1 class="page-header"><center>Profil</center></h1>
 <?php
 $dbhost = 'localhost';
 $dbuser = 'root';
