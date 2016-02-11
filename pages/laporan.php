@@ -103,6 +103,19 @@ $i++;
 
 ?>
 </table>
+<?php
+
+$sql = "SELECT count(nak) as nak from anggota";
+$ambildata = mysql_query( $sql, $koneksi);
+$row = mysql_fetch_array($ambildata, MYSQL_ASSOC);
+$semua=$row['nak'];
+$i = $i -1;
+
+$persen = ($i / $semua) * 100;
+echo "Total anggota yang telah hadir $i (";
+echo round($persen,2);
+echo "%) dari total $semua anggota";
+?>
 <form action="print.php">
 <input type="submit" value="Cetak" class="btn btn-success">
 </form>
