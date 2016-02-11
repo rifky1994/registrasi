@@ -7,7 +7,7 @@ $dbuser = 'root';
 $dbpass = '';
 $koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
 mysql_select_db('registrasi');
-$sql = "SELECT * from kehadiran join anggota using (nak) order by id_kuasa";
+$sql = "SELECT * from kehadiran join anggota using (nak) where jam between '$jam1' and '$jam2' order by id_kuasa";
 
 isset($_POST['cari_laporang']); 
 	$jam1 = $_POST['jam1'];
