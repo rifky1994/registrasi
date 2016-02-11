@@ -1,4 +1,8 @@
-<h1>Laporan Kehadiran</h1>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <b><center>Laporan Kehadiran</center></b>
+    </div>
+  </div>
 
 <?php
 

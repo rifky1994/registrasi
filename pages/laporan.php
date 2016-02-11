@@ -1,9 +1,18 @@
-<h1 class="page-header">Laporan Kehadiran</h1>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+		<center><b>Laporan Kehadiran</b></center>
+	</div>
+</div>
+
+	
+
 <br>
-<form method="post" action="?id=14">
-<input id="timepicker" name="jam1" type="text"> &nbsp;&nbsp; | &nbsp;&nbsp;
-<input id="timepicker2" name="jam2" type="text"> &nbsp;&nbsp;
-<input type="submit" name="cari_laporan" value="cari"></form>
+<center>
+	<form method="post" action="?id=14">
+	<input id="timepicker" name="jam1" type="text"> &nbsp;&nbsp; &nbsp;&nbsp;
+	<input id="timepicker2" name="jam2" type="text"> &nbsp;&nbsp;
+	<input type="submit" name="cari_laporan" value="cari" class="btn btn-primary"></form>
+</center>
 
 <script type="text/javascript">
     // configuration value for the CSS style
@@ -43,6 +52,11 @@ ng.ready( function() {
     
 });
 </script>
+<center>
+	<form action="print.php">
+		<input type="submit" value="Cetak" class="btn btn-success">
+	</form>
+</center>
 <br>
 <?php
 
@@ -103,19 +117,19 @@ $i++;
 
 ?>
 </table>
-<?php
+<hr>
+<div class="alert alert-success" role="alert">
+	<?php
+		$sql = "SELECT count(nak) as nak from anggota";
+		$ambildata = mysql_query( $sql, $koneksi);
+		$row = mysql_fetch_array($ambildata, MYSQL_ASSOC);
+		$semua=$row['nak'];
+		$i = $i -1;
 
-$sql = "SELECT count(nak) as nak from anggota";
-$ambildata = mysql_query( $sql, $koneksi);
-$row = mysql_fetch_array($ambildata, MYSQL_ASSOC);
-$semua=$row['nak'];
-$i = $i -1;
+		$persen = ($i / $semua) * 100;
+		echo "<b><center>Total anggota yang telah hadir $i (";
+		echo round($persen,2);
+		echo "%) dari total $semua anggota</b></center>";
+	?>
+</div>
 
-$persen = ($i / $semua) * 100;
-echo "Total anggota yang telah hadir $i (";
-echo round($persen,2);
-echo "%) dari total $semua anggota";
-?>
-<form action="print.php">
-<input type="submit" value="Cetak" class="btn btn-success">
-</form>

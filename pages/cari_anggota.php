@@ -1,4 +1,8 @@
-<h1 class="page-header"><center>Data Anggota</center></h1>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <b><center>Data Anggota</center></b>
+    </div>
+  </div>
 
 <?php
 $dbhost = 'localhost';

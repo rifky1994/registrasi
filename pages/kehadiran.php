@@ -12,7 +12,13 @@
 			$statuss=$rows['status'];
 		}
 ?>
-
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<center>
+			<b>Input Absensi</b>
+		</center>
+	</div>
+</div>
 <center>
 	<h1 class="page-header">Absensi</h1>
 	<form action="?id=4" method="post">
@@ -106,3 +112,4 @@ while($row = mysql_fetch_array($ambildata2, MYSQL_ASSOC))
 </td>
 <td><input class='btn btn-success' type='submit' name='hapus' value='Hapus Kehadiran' onclick="return confirm('Akan dihapus?')"/></td></tr>
 </table>
+</form></center>

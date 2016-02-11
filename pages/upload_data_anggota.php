@@ -1,18 +1,29 @@
 <?php 
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
- ?>
-<h1 class="page-header"><center>Upload Data Anggota</center></h1>
-<h3>Ketentuan Upload Data</h3>
-<ul>  <li>Data berupa excel dengan extensi *.xls (1997-2003)</li>
-      <li>Baris pertama berisikan header tabel, secara berurutan id,nik,nama,nak</li>
-      <li>Baris Selanjutnya berisikan data yang akan diinput</li>
-      <li>Untuk Kolom ke 5 (setelah kolom nak) akan diabaikan</li>
-</ul>
+  error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+?>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <b><center>Upload Data Anggota</center></b>
+    </div>
+  </div>
+  
+    <h3>Ketentuan Upload Data</h3>
+      <ol>  
+        <li>Data berupa excel dengan extensi *.xls (1997-2003)</li>
+        <li>Baris pertama berisikan header tabel, secara berurutan id,nik,nama,nak</li>
+        <li>Baris Selanjutnya berisikan data yang akan diinput</li>
+        <li>Untuk Kolom ke 5 (setelah kolom nak) akan diabaikan</li>
+      </ol>
+  
 <form name="myForm" id="myForm" onSubmit="return validateForm()" method="post" enctype="multipart/form-data">
     <input type="file" id="filepegawaiall" name="filepegawaiall">
     <br>
-    <input type="submit" name="submit" value="Import">
+    <center>
+      <input type="submit" name="submit" value="Import" class="btn btn-primary">
+    </center>
     <br>
+    <hr>
     <label><input type="checkbox" name="drop" value="1" /> <u>Kosongkan table di database terlebih dahulu.</u> </label>
 </form>
 <?php 

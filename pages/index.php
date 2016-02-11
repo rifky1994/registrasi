@@ -106,47 +106,45 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
     <div id="wrapper">
 
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i><b> <?php echo $_SESSION['nama']; ?> </b><i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="?id=10"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user fa-fw"></i>Selamat datang, <b> <?php echo $_SESSION['nama']; ?> </b><i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="?id=10"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li><br><br></li>
                         <li>
-                            <a href="?id=1"><i class="fa fa-dashboard fa-fw"></i><b> Absensi</b></a>
+                            <a href="?id=1"><i class="fa fa-share fa-fw"></i><b> Input Absensi</b></a>
                         </li>
                         <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i><b> Data Anggota</b><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                <a href="?id=3"><b>Lihat Data Anggota</b></a>
+                                <a href="?id=3"><i class="fa fa-book fa-fw"></i><b> Lihat Data Anggota</b></a>
                                 </li>
                                 <li>
-                                <a href="?id=8"><b>Upload Data Anggota</b></a>
-                                </li>
-                                <li>
-                                <a href="?id=9"><b>Ekspor Data Anggota</b></a>
+                                <a href="?id=8"><i class="fa fa-upload fa-fw"></i><b> Upload Data Anggota</b></a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="?id=7"><i class="fa fa-dashboard fa-fw"></i><b> Laporan Kehadiran</b></a>
+                            <a href="?id=7"><i class="fa fa-file fa-fw"></i><b> Laporan Kehadiran</b></a>
                         </li>
                          <li>
-                            <a href="?id=12"><i class="fa fa-dashboard fa-fw"></i><b>Cetak Bukti Pembayaran</b></a>
+                            <a href="?id=12"><i class="fa fa-print fa-fw"></i><b> Cetak Bukti Pembayaran</b></a>
                         </li>
                         
                     </ul>

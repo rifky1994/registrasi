@@ -1,4 +1,8 @@
-<h1 class="page-header">Cetak Bukti Pembayaran</h1>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+		<center><b>Cetak Bukti Pembayaran</b></center>
+	</div>
+</div>
 <?php
 
 $dbhost = 'localhost';
@@ -61,6 +65,7 @@ $i++;
 ?>
 
 </table>
-<p align="right"><input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti"></p>
+<hr>
+<p align="center"><input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti"></p>
 
 </form>
