@@ -1,4 +1,8 @@
 <h1 class="page-header"><center>Data Anggota</center></h1>
+<form method="post" action="?id=15">
+<input id="timepicker" name="cari" type="text">
+<input type="submit" name="cari_anggota" value="Cari Anggota">
+</form>
 <?php
 $dbhost = 'localhost';
 $dbuser = 'root';

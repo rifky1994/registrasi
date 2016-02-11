@@ -8,6 +8,55 @@ $dbuser = 'root';
 $dbpass = '';
 $koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
 
+
+$tahun = date("Y");
+$bulan = date("n");
+switch ($bulan) {
+  case '1':
+  $bulan2="Januari";
+    break;
+    case '2':
+  $bulan2="Februari";
+    break;
+    case '3':
+  $bulan2="Maret";
+    break;
+    case '4':
+  $bulan2="April";
+    break;
+    case '5':
+  $bulan2="Mei";
+    break;
+    case '6':
+  $bulan2="Juni";
+    break;
+    case '7':
+  $bulan2="Juli";
+    break;
+    case '8':
+  $bulan2="Agustus";
+    break;
+    case '9':
+  $bulan2="September";
+    break;
+    case '10':
+  $bulan2="Oktober";
+    break;
+    case '11':
+  $bulan2="November";
+    break;
+    case '12':
+  $bulan2="Desember";
+    break;
+  default:
+  echo "Bulan salah!!";
+    break;
+}
+$tanggal=date("j");
+$waktu = $tanggal." ".$bulan2." ".$tahun;
+
+
+
 isset($_POST['cetak_bukti']);
 
 
@@ -61,7 +110,7 @@ $html =
   '<tr><td></td><td></td><td><font size=1>('.$terbilang.' Rupiah)</font></td></tr>'.
   '<tr><td>Untuk Pembayaran</td><td>:</td><td colspan=2>Biaya Transportasi RAT 2016 atas nama :</td></tr>'.
   '<tr><td></td><td></td><td colspan=2><font size=1>1.'.$row[nama].'(500.000)'.$keluar.'</td></tr>'.
-  '<tr><td colspan=3></td><td>Bandung, 6 Februari 2016</td></tr>'.
+  '<tr><td colspan=3></td><td>Bandung, '.$waktu.'</td></tr>'.
   '<tr><td align=center>Yang Menerima,</td><td colspan=2 align=center>Verifikasi,</td><td>Yang Membayarkan</td></tr>'.
   '<tr><td><br><br><br><br><br></td></tr>'.
   '<tr><td align=center><u>'.$row[nama].'</u></td><td colspan=2 align=center><u>YOPI MULYANA</u></td><td><u>RINI NURAENI</u></td></tr>'.
@@ -75,7 +124,7 @@ $html =
   '<tr><td></td><td></td><td><font size=1>('.$terbilang.' Rupiah)</font></td></tr>'.
   '<tr><td>Untuk Pembayaran</td><td>:</td><td colspan=2>Biaya Transportasi RAT 2016 atas nama :</td></tr>'.
   '<tr><td></td><td></td><td colspan=2><font size=1>1.'.$row[nama].'(500.000)'.$keluar.'</td></tr>'.
-  '<tr><td colspan=3></td><td>Bandung, 6 Februari 2016</td></tr>'.
+  '<tr><td colspan=3></td><td>Bandung, '.$waktu.'</td></tr>'.
   '<tr><td align=center>Yang Menerima,</td><td colspan=2 align=center>Verifikasi,</td><td>Yang Membayarkan</td></tr>'.
   '<tr><td><br><br><br><br><br></td></tr>'.
   '<tr><td align=center><u>'.$row[nama].'</u></td><td colspan=2 align=center><u>YOPI MULYANA</u></td><td><u>RINI NURAENI</u></td></tr>'.

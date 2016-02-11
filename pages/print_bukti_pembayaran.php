@@ -1,4 +1,4 @@
-<h1 class="page-header">Laporan Kehadiran</h1>
+<h1 class="page-header">Cetak Bukti Pembayaran</h1>
 <?php
 
 $dbhost = 'localhost';
@@ -6,7 +6,7 @@ $dbuser = 'root';
 $dbpass = '';
 $koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
 mysql_select_db('registrasi');
-$sql = "SELECT * from kehadiran join anggota using (nak) order by id_kuasa";
+$sql = "SELECT * from kehadiran join anggota using (nak) order by no_kupon";
 
  
 
@@ -35,7 +35,7 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 $i++;
 } 
 
-$sql = "SELECT * from kuasa join anggota using (nak) order by id_kuasa";
+$sql = "SELECT * from kuasa join anggota using (nak) order by no_kupon";
 $ambildata = mysql_query( $sql, $koneksi);
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {
@@ -60,7 +60,7 @@ $i++;
 
 ?>
 
-
-<tr><td colspan="9"></td><td><input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti"></td></tr>
 </table>
+<p align="right"><input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti"></p>
+
 </form>

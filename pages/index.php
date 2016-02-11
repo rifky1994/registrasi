@@ -8,8 +8,74 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 <html lang="en">
 
 <head>
+<link href='abc.jpg' rel='shortcut icon' />
+<style type="text/css">
+    
+    table  .ringkas
+    {
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+    }
+    table th .ringkas, table td.ringkas
+    {
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        padding: 5px 10px;
+    }
+    table th .ringkas
+    {
+        background: #ddd;
+    }
 
-    <link href='less/icon.png' rel='shortcut icon'>
+    table
+    {}
+    table th,tr,td
+    {}
+</style>    
+<script type="text/javascript" src='jquery-2.1.4.min.js'></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var batas=10, hal=1,posisi=(hal-1)*batas+1;
+        var jml = $('tr').length-1;
+        var text= '';
+        
+        $('table').after('<center><a href="#" class="prev">Sebelumnya</a> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;<a href="#" class="next">Selanjutnya</a></center>');
+        
+        function tampilData(){
+        if(hal<=1)$('.prev').hide();
+        else $('.prev').show();
+        
+        if(hal >= jml/batas) $('.next').hide();
+        else $('.next').show();
+        $('tr').hide();
+        for (i=posisi;i<=batas*hal;i++){
+        $('tr').each(function(){
+        if($('tr').index(this)==i || $('tr').index(this)==0)
+        $(this).show();
+        });
+        }
+        $('.ket').text(hal +' '+jml+' '+posisi);
+        }
+        
+        tampilData();
+        
+        $('.next').click(function(){
+        hal+=1;
+        posisi=(hal-1) * batas +1;
+        tampilData();
+        });
+        $('.prev').click(function(){
+        hal-=1;
+        posisi=(hal-1) * batas +1;
+        tampilData();
+        }); 
+        
+    }); 
+        
+    
+    </script>
+
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -80,7 +146,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                             <a href="?id=7"><i class="fa fa-dashboard fa-fw"></i><b> Laporan Kehadiran</b></a>
                         </li>
                          <li>
-                            <a href="?id=12"><i class="fa fa-dashboard fa-fw"></i>Cetak Bukti Pembayaran</a>
+                            <a href="?id=12"><i class="fa fa-dashboard fa-fw"></i><b>Cetak Bukti Pembayaran</b></a>
                         </li>
                         
                     </ul>

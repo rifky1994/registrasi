@@ -24,10 +24,10 @@ $no_kupon2 = $no_kupon + 1;
 
 if (isset($_POST['simpan'])) 
 	{
-		$sql4 = "update kehadiran set temp=0, waktu='$tanggaljam',no_kupon=$no_kupon2 where temp=1 and user='$_SESSION[nama]'";
+		$sql4 = "update kehadiran set jam='$jam', temp=0, waktu='$tanggaljam',no_kupon=$no_kupon2 where temp=1 and user='$_SESSION[nama]'";
 		$update = mysqli_query( $konek,$sql4);
 
-		$sql5 = "update kuasa set temp=0, waktu='$tanggaljam',no_kupon=$no_kupon2 where temp=1 and user='$_SESSION[nama]'";
+		$sql5 = "update kuasa set jam='$jam', temp=0, waktu='$tanggaljam',no_kupon=$no_kupon2 where temp=1 and user='$_SESSION[nama]'";
 		$update2 = mysqli_query( $konek,$sql5);
 
 		include "kehadiran.php";

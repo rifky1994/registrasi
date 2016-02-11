@@ -12,6 +12,22 @@ $konek = mysqli_connect('localhost','root','','registrasi');
 	$nak= $_POST['nak'];
 	$status= $_POST['status'];
 
+		$esqiel = "SELECT nak from anggota where nak='$nak'";
+		$takedata = mysqli_query( $konek,$esqiel);
+		$baris = mysqli_fetch_array($takedata, MYSQL_ASSOC);
+		if ($nak <> $baris['nak'])
+		{
+			?>
+					<SCRIPT LANGUAGE="JavaScript">
+					window.alert ("Data anggota tidak ada !!!");
+					window.location.href="?id=1";
+					</SCRIPT>
+					<?php
+		}
+		else
+		{
+
+
 	if ($status=="HADIR")
 	{
 		$sql4 = "SELECT status from kehadiran where temp=1 and user='$_SESSION[nama]'";
@@ -52,7 +68,12 @@ $konek = mysqli_connect('localhost','root','','registrasi');
 									}
 								else
 									{
-										echo "gagal insert";
+										?>
+							<SCRIPT LANGUAGE="JavaScript">
+							window.alert ("Anggota sudah melakukan Absen !!!");
+							window.location.href="?id=1";
+							</SCRIPT>
+							<?php
 									}
 						}
 						else
@@ -91,7 +112,12 @@ $konek = mysqli_connect('localhost','root','','registrasi');
 					}
 				else
 					{
-						echo "gagal insert";
+						?>
+							<SCRIPT LANGUAGE="JavaScript">
+							window.alert ("Anggota sudah melakukan Absen !!!");
+							window.location.href="?id=1";
+							</SCRIPT>
+							<?php
 					}
 			}
 			else
@@ -105,14 +131,25 @@ $konek = mysqli_connect('localhost','root','','registrasi');
 			}
 
 	}
-	else {}
+	else {
+
+		?>
+							<SCRIPT LANGUAGE="JavaScript">
+							window.alert ("Anggota sudah melakukan Absen !!!");
+							window.location.href="?id=1";
+							</SCRIPT>
+							<?php
+	}
 
 
 		
 
 	}
+}
 	else
-	{}
+	{
+
+	}
 	
 ?>
 

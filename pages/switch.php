@@ -42,7 +42,12 @@ $link = $_GET['id'];
 	case 13:
 	include "print_bukti.php";
 	break;
-	
+	case 14:
+	include "cari_laporan.php";
+	break;	
+	case 15:
+	include "cari_anggota.php";
+	break;	
 	default :
 	include "kehadiran.php";
 	break;
