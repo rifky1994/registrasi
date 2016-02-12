@@ -17,7 +17,7 @@ $sql = "SELECT * from kehadiran join anggota using (nak) order by no_kupon";
 $ambildata = mysql_query( $sql, $koneksi);
 echo "<form action='print_bukti.php' method='post'>";
 echo "<table border='1' class='table-responsive table-bordered table'>
-<tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th><th>Cetak</th></tr>";
+<tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th><th>Cetak/Hapus</th></tr>";
 $i=1;
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {
@@ -66,6 +66,6 @@ $i++;
 
 </table>
 <hr>
-<p align="center"><input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti"></p>
+<p align="center"><input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti"><input type="submit" value="Hapus" class="btn btn-success" name="hapus_bukti"  onclick="return confirm('Semua data dengan ID kuasa yang sama akan dihapus?')"></p>
 
 </form>

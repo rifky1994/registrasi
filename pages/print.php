@@ -3,8 +3,9 @@
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 mysql_connect("localhost","root","");
 mysql_select_db("registrasi");
+$kueri = mysql_query('set @row_num = 0');
 
-$sql = mysql_query("SELECT anggota.id,kehadiran.nak,nama,nik,status,no_kupon,id_kuasa,user,waktu from kehadiran join anggota using (nak) order by id");
+$sql = mysql_query("SELECT @row_num := @row_num + 1 as id ,kehadiran.nak,nama,nik,status,no_kupon,id_kuasa,user,waktu from kehadiran join anggota using (nak) order by id");
 $data = array();
 while ($row = mysql_fetch_assoc($sql))
 {
@@ -59,7 +60,7 @@ foreach ($data as $baris)
 	$pdf -> Ln();
 }
 
-$sql2 = mysql_query("SELECT anggota.id,kuasa.nak,nama,nik,status,no_kupon,id_kuasa,user,waktu from kuasa join anggota using (nak) order by anggota.id");
+$sql2 = mysql_query("SELECT @row_num := @row_num + 1 as id,kuasa.nak,nama,nik,status,no_kupon,id_kuasa,user,waktu from kuasa join anggota using (nak) order by id");
 $data2 = array();
 while ($row2 = mysql_fetch_assoc($sql2))
 {

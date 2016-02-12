@@ -7,6 +7,28 @@ $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpass = '';
 $koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
+$konek = mysqli_connect('localhost','root','','registrasi');
+$hapus= $_POST['cetak'];
+if(isset($_POST['hapus_bukti']))
+{
+  
+  
+
+  $kueri = "delete from kehadiran where id_kuasa=$hapus";
+  $eksekusi = mysqli_query($konek,$kueri);
+  $kueri2 = "delete from kuasa where id_kuasa=$hapus";
+  $eksekusi2 = mysqli_query($konek,$kueri2);
+  
+  header('location:index.php?id=12');
+
+}
+else 
+{
+
+
+
+
+    $nak= $_POST['cetak'];
 
 
 $tahun = date("Y");
@@ -57,10 +79,6 @@ $waktu = $tanggal." ".$bulan2." ".$tahun;
 
 
 
-isset($_POST['cetak_bukti']);
-
-
-    $nak= $_POST['cetak'];
 
 $sql = "SELECT anggota.id,kehadiran.nak,nama,nik,status,no_kupon,id_kuasa,user from kehadiran join anggota using (nak) where id_kuasa=$nak";
 mysql_select_db("registrasi");
@@ -113,7 +131,7 @@ $html =
   '<tr><td colspan=3></td><td>Bandung, '.$waktu.'</td></tr>'.
   '<tr><td align=center>Yang Menerima,</td><td colspan=2 align=center>Verifikasi,</td><td>Yang Membayarkan</td></tr>'.
   '<tr><td><br><br><br><br><br></td></tr>'.
-  '<tr><td align=center><u>'.$row[nama].'</u></td><td colspan=2 align=center><u>YOPI MULYANA</u></td><td><u>RINI NURAENI</u></td></tr>'.
+  '<tr><td align=center><u>'.$row[nama].'</u></td><td colspan=2 align=center><u>'.$row['user'].'</u></td><td><u>RINI NURAENI</u></td></tr>'.
   '<tr><td align=center>'.$row[nak].'/'.$row[nik].'</td><td colspan=2 align=center>Petugas</td><td>Ass. MAN USP</td></tr></table>'.
   '<br><hr><br>'.
   '<center><b><h2>TANDA TERIMA & REGISTRASI - RAT TAHUN BUKU 2016</h2><b></center><br>'.
@@ -127,7 +145,7 @@ $html =
   '<tr><td colspan=3></td><td>Bandung, '.$waktu.'</td></tr>'.
   '<tr><td align=center>Yang Menerima,</td><td colspan=2 align=center>Verifikasi,</td><td>Yang Membayarkan</td></tr>'.
   '<tr><td><br><br><br><br><br></td></tr>'.
-  '<tr><td align=center><u>'.$row[nama].'</u></td><td colspan=2 align=center><u>YOPI MULYANA</u></td><td><u>RINI NURAENI</u></td></tr>'.
+  '<tr><td align=center><u>'.$row[nama].'</u></td><td colspan=2 align=center><u>'.$row['user'].'</u></td><td><u>RINI NURAENI</u></td></tr>'.
   '<tr><td align=center>'.$row[nak].'/'.$row[nik].'</td><td colspan=2 align=center>Petugas</td><td>Ass. MAN USP</td></tr></table>'.
   '</html></body></html>';
  
@@ -135,5 +153,5 @@ $dompdf = new DOMPDF();
 $dompdf->load_html($html);
 $dompdf->render();
 $dompdf->stream('Laporan_'.$row[nama].'.pdf');
-
+}
 ?>

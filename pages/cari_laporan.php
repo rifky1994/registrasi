@@ -11,11 +11,15 @@ $dbuser = 'root';
 $dbpass = '';
 $koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
 mysql_select_db('registrasi');
-$sql = "SELECT * from kehadiran join anggota using (nak) where jam between '$jam1' and '$jam2' order by id_kuasa";
 
 isset($_POST['cari_laporang']); 
 	$jam1 = $_POST['jam1'];
 	$jam2 = $_POST['jam2'];
+
+
+
+$sql = "SELECT * from kehadiran join anggota using (nak) where jam between '$jam1' and '$jam2' order by no_kupon";
+
 
 $ambildata = mysql_query( $sql, $koneksi);
 
@@ -42,7 +46,7 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 $i++;
 } 
 
-$sql = "SELECT * from kuasa join anggota using (nak) where jam between '$jam1' and '$jam2' order by id_kuasa";
+$sql = "SELECT * from kuasa join anggota using (nak) where jam between '$jam1' and '$jam2' order by no_kupon";
 $ambildata = mysql_query( $sql, $koneksi);
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {
