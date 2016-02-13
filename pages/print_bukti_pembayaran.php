@@ -66,6 +66,10 @@ $i++;
 
 </table>
 <hr>
-<p align="center"><input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti"><input type="submit" value="Hapus" class="btn btn-success" name="hapus_bukti"  onclick="return confirm('Semua data dengan ID kuasa yang sama akan dihapus?')"></p>
+<center>
+	
+		<input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti">
+	
+</center>
 
 </form>

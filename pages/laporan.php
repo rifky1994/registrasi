@@ -11,7 +11,7 @@
 	<form method="post" action="?id=14">
 	<input id="timepicker" name="jam1" type="text"> &nbsp;&nbsp; &nbsp;&nbsp;
 	<input id="timepicker2" name="jam2" type="text"> &nbsp;&nbsp;
-	<input type="submit" name="cari_laporan" value="cari" class="btn btn-primary"></form>
+	<input type="submit" name="cari_laporan" value="cari" class="btn btn-success"></form>
 </center>
 
 <script type="text/javascript">
