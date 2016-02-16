@@ -1,4 +1,8 @@
-<h1 class="page-header"><center>Profil</center></h1>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <b><center>Profil</center></b>
+    </div>
+  </div>
 <?php
 $dbhost = 'localhost';
 $dbuser = 'root';
