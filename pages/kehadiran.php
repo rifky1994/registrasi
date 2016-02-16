@@ -1,4 +1,5 @@
 <?php
+	
 	$dbhost = 'localhost';
 	$dbuser = 'root';
 	$dbpass = '';
@@ -23,15 +24,22 @@
 	<h1 class="page-header">Absensi</h1>
 	<form action="?id=4" method="post">
 		<table>
-			<tr><td><input type="text" name="nak" size="25" class="form-control" placeholder="NAK"></td><td class="col-md-2"></td>
+			<tr><td>
+
+			
+			<input type="text"name="nak" size="25" class="form-control" placeholder="NAK">
+			
+
+			</td><td class="col-md-2"></td>
 			<td></td><td>	<select class="form-control" name="status">
 												<?php if ($statuss=="HADIR") {} else {?>
 												<option name="hadir" value="HADIR">HADIR</option>
 												<?php }?>
-												<option name="kuasa" value="KUASA">KUASA</option>
+												<option name="kuasa" value="KUASA">KUASA</option></select></td></tr>
 		</table>
 		<br>
-		</select></td><td><input class='btn btn-success' size="20px" type="submit" name="tambah" value="Tambah Absensi" /></td></tr>
+		</select></td><td><input class='btn btn-success' size="20px" type="submit" name="tambah" value="Tambah Absensi" />
+		<input  class='btn btn-success' type='submit' name='cari' value='Cari' /></td></tr>
 	</form>
 </center>
 <hr>
@@ -106,10 +114,13 @@ while($row = mysql_fetch_array($ambildata2, MYSQL_ASSOC))
 } 
 
  
-?>
-<tr align="center"><td colspan="3">
+?></table>
+
+<center>
 <input  class='btn btn-success' type='submit' name='simpan' value='Simpan Absensi' onclick="return confirm('Absensi Selesai?')"/>
-</td>
-<td><input class='btn btn-success' type='submit' name='hapus' value='Hapus Kehadiran' onclick="return confirm('Akan dihapus?')"/></td></tr>
-</table>
+
+
+<input class='btn btn-success' type='submit' name='hapus' value='Hapus Kehadiran' onclick="return confirm('Akan dihapus?')"/>
+<input class='btn btn-success' type='submit' name='hapus_semua' value='Hapus Semua Data' onclick="return confirm('Akan dihapus?')"/>
+
 </form></center>

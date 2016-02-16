@@ -9,10 +9,21 @@ Menu user profile :
 Menu logout :
 1. Keluar dari Sistem
 
-Menu absensi :
+Menu input absensi :
 1. input data kehadiran per nak (hadir dan kuasa)
 2. jika input pertama hadir maka selanjutnya hanya dapat input kuasa, sampai klik simpan absensi.
 3. hapus kehadiran jika salah input (per anggota)
+4. cari dapat menggunakan nak,nik,dan nama
+5. jika sudah mencari, klik pada tombol radio anggota yang akan hadir lalu klik tambah.
+
+Menu Input Bendahara :
+1. Berisi NIK, Nama, dan NAK dari bendahara (terdapat di bukti pembayaran)
+2. NIK,Nama, dan NAK yang tampil di form adalah bendahara sebelumnya
+
+Menu Input Kuasa Yang hadir :
+1. Berisi semua anggota dengan status Kuasa
+2. cari kemudian pilih anggota KUASA yang akan hadir, lalu klik simpan
+
 
 Menu lihat data anggota :
 1. melihat data anggota (10 anggota perhalaman)
@@ -42,3 +53,13 @@ Menu cetak bukti pembayaran
 2. data yang ditampilkan berdasarkan status 'hadir' setelah itu baru menampilkan data yang di 'kuasa' kan.
 3. data yang ditampilkan 10 data perhalaman
 4. pilih anggota yang akan di cetak laporannya pembayarannya, lalu klik cetak. Akan muncul pop-up untuk menyimpan data dalam bentuk *.pdf
+5. Hanya menampilkan data anggota yang hadir dan yang dikuasakan, data kuasa yang hadir tidak ditampilkan
+
+Menu Cetak KUpon ... :
+1. Menampilkan data anggota kuasa yang kemudian hadir.
+2. Cari dan pilih untuk mencetak.
+
+
+Menu Hapus Data Kehadiran
+1. mengahpus semua data kehadiran (hadir maupun kuasa)
+2. dihapus juga gppa, biar gampang aja ngehapus datanya gak usah ke phpmyadmin hhe

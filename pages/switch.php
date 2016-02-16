@@ -48,6 +48,36 @@ $link = $_GET['id'];
 	case 15:
 	include "cari_anggota.php";
 	break;	
+	case 16:
+	include "inputbendahara.php";
+	break;
+	case 17:
+	include "prosesinputbendahara.php";
+	break;
+	case 18:
+	include "inputkuasa.php";
+	break;
+	case 19:
+	include "prosesinputkuasa.php";
+	break;
+	case 20:
+	include "cariinputkuasa.php";
+	break;
+	case 21:
+	include "cetakkupon.php";
+	break;
+	case 22:
+	include "prosescetakkupon.php";
+	break;
+	case 23:
+	include "caricetakkupon.php";
+	break;
+	case 24:
+	include "cariprintbtukti.php";
+	break;
+	case 99:
+	include "hapussemua.php";
+	break;
 	default :
 	include "kehadiran.php";
 	break;

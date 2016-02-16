@@ -31,7 +31,58 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
     {}
     table th,tr,td
     {}
-</style>    
+
+
+
+
+#autocomplete
+ {
+ position:relative;
+ }
+ #nak
+ {
+ width:200px;
+ }
+ #autocomplete span
+ {
+ width:500px;
+ max-height:250px;
+ border: 1px solid#ccc;
+ background:#fff;
+ overflow:hidden;
+ overflow: scroll;
+ padding:0;
+ position:absolute;
+ left:0;
+ top:23px;
+ z-index:10;
+ }
+ #autocomplete ul
+ {
+ padding:0;
+ margin:0;
+ }
+ #autocomplete li
+ {
+ list-style:none;
+ height:15px;
+ padding:0 0 10px 10px;
+ cursor:pointer;
+ }
+ #autocomplete li:hover
+ {
+ background:#eee;
+ }
+
+
+
+
+</style> 
+
+
+
+
+   
 <script type="text/javascript" src='jquery-2.1.4.min.js'></script>
 
 <script type="text/javascript">
@@ -40,7 +91,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
         var jml = $('tr').length-1;
         var text= '';
         
-        $('table').after('<center><a href="#" class="prev">Sebelumnya</a> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;<a href="#" class="next">Selanjutnya</a></center>');
+        $('table').after('<center><a href="#" class="prev">Sebelumnya</a> &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;<a href="#" class="next">Selanjutnya</a></center>');
         
         function tampilData(){
         if(hal<=1)$('.prev').hide();
@@ -75,6 +126,55 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
         
     
     </script>
+
+    
+
+
+
+    <script type="text/javascript">
+    $('document').ready(function()
+    {
+        $('#nak').attr('autocomplete','off');
+        $('#nak').after('<span></span>');
+        $('#autocomplete span').hide();
+        $('#nak').keyup(function(e){
+            var kata = $(this).val();
+            var nak = $(this);
+            
+            $('#autocomplete span').show().html('<img src="img/loading.gif">');
+            if(kata.length == 0)
+            {
+                $('#autocomplete span').hide();
+            }
+        
+        $.ajax
+        (
+            {
+                type : "POST",
+                url : "autocompletenak.php",
+                data : "kata="+kata,
+                success : function(data)
+                {
+                    $('#autocomplete span').html(data);
+                    $('#autocomplete li').click(function(e)
+                    {
+                        var ul = $(this).parent();
+                        ul.parent().hide;
+                        nak.val($(this).text());
+                    });
+                }
+            }
+        );
+    });
+    
+    $(window).click(function()
+    {
+        $('#autocomplete span').hide();
+    });
+    });
+    </script>
+
+
 
 
     <meta charset="utf-8">
@@ -130,6 +230,12 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                             <a href="?id=1"><i class="fa fa-share fa-fw"></i><b> Input Absensi</b></a>
                         </li>
                         <li>
+                            <a href="?id=16"><i class="fa fa-share fa-fw"></i><b> Input Bendahara</b></a>
+                        </li>
+                        <li>
+                            <a href="?id=18"><i class="fa fa-share fa-fw"></i><b> Input Kuasa Yang Hadir</b></a>
+                        </li>
+                        <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i><b> Data Anggota</b><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -145,6 +251,12 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                         </li>
                          <li>
                             <a href="?id=12"><i class="fa fa-print fa-fw"></i><b> Cetak Bukti Pembayaran</b></a>
+                        </li>
+                        <li>
+                            <a href="?id=21"><i class="fa fa-print fa-fw"></i><b> Cetak Kupon (Khusus Kuasa Yang Hadir)</b></a>
+                        </li>
+                        <li>
+                            <a href="?id=99"><i class="fa fa-delete fa-fw"></i><b> Hapus Data KEhadiran</b></a>
                         </li>
                         
                     </ul>

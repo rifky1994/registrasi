@@ -17,7 +17,7 @@ if(! $koneksi )
 isset($_POST['cari_anggota']); 
 	$cari = $_POST['cari'];
 
-$sql = "SELECT * from anggota where nak like '%$cari%' or nama like '%$cari%' or nik like '%$cari%'";
+$sql = "SELECT anggota.nak, nama, nik,id_kuasa,no_kupon from kuasa join anggota using(nak) where kuasa.nak like '%$cari%' or anggota.nama like '%$cari%' or anggota.nik like '%$cari%'";
  
 mysql_select_db('registrasi');
 $ambildata = mysql_query( $sql, $koneksi);
@@ -26,11 +26,11 @@ if(! $ambildata )
   die('Gagal ambil data: ' . mysql_error());
 }
 $i=1;
-echo "<table border='1' class='table-responsive table-bordered table'><tr><th>ID</th><th>NAK</th><th>NAMA</th><th>NIK</th></tr>";
+echo "<table border='1' class='table-responsive table-bordered table'><tr><th>ID</th><th>NAK</th><th>NAMA</th><th>NIK</th><th>ID Kuasa</th><th>No Kupon</th></tr>";
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {
     echo "<tr><td>$i</td><td>{$row['nak']}</td><td>{$row['nama']}</td>
-			<td>{$row['nik']}</td></tr>";
+			<td>{$row['nik']}</td><td>{$row['id_kuasa']}</td><td>{$row['no_kupon']}</td></tr>";
 			$i++;
 } 
 

@@ -4,15 +4,7 @@
 	</div>
 </div>
 
-<form method="post" action="?id=24">
-		<div class="col-lg-4">
-				<input name="cari" type="text" class="form-control" width="200">
-		</div>
-		<div class="col-lg-4">
-				<input type="submit" name="cari_anggota" value="Cari Anggota" class="btn btn-primary">
-			</form>
-		</div>
-		<br>
+
 <?php
 
 $dbhost = 'localhost';
@@ -20,7 +12,11 @@ $dbuser = 'root';
 $dbpass = '';
 $koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
 mysql_select_db('registrasi');
-$sql = "SELECT * from kehadiran join anggota using (nak) order by no_kupon";
+isset($_POST['cari_anggota']); 
+	$cari = $_POST['cari'];
+
+
+$sql = "SELECT * from kehadiran join anggota using (nak) where nak like '%$cari%' OR nama like '%$cari%' OR nik like '%$cari%' order by no_kupon";
 
  
 
@@ -49,7 +45,7 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 $i++;
 } 
 
-$sql = "SELECT * from kuasa join anggota using (nak) where status2<>'HADIR' order by no_kupon";
+$sql = "SELECT * from kuasa join anggota using (nak) where (status2<>'HADIR') AND (nak like '%$cari%' OR nama like '%$cari%' OR nik like '%$cari%') order by no_kupon";
 $ambildata = mysql_query( $sql, $koneksi);
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {

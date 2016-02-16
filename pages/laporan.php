@@ -118,18 +118,55 @@ $i++;
 ?>
 </table>
 <hr>
-<div class="alert alert-success" role="alert">
+
 	<?php
 		$sql = "SELECT count(nak) as nak from anggota";
 		$ambildata = mysql_query( $sql, $koneksi);
 		$row = mysql_fetch_array($ambildata, MYSQL_ASSOC);
 		$semua=$row['nak'];
-		$i = $i -1;
 
-		$persen = ($i / $semua) * 100;
-		echo "<b><center>Total anggota yang telah hadir $i (";
+		$sql2 = "SELECT count(nak) as nak from kehadiran";
+		$ambildata2 = mysql_query( $sql2, $koneksi);
+		$row2 = mysql_fetch_array($ambildata2, MYSQL_ASSOC);
+		$semua2=$row2['nak'];
+
+		$sql3 = "SELECT count(nak) as nak from kuasa";
+		$ambildata3 = mysql_query( $sql3, $koneksi);
+		$row3 = mysql_fetch_array($ambildata3, MYSQL_ASSOC);
+		$semua3=$row3['nak'];
+
+		$jumlahhadir = $semua2 + $semua3;
+
+		$persen = ($jumlahhadir / $semua) * 100;
+		if ($persen <50)
+		{
+			?>
+			<div class="alert alert-danger" role="alert">
+			<?php
+		echo "<b><center>Jumlah anggota $semua anggota<br>";
+		echo "<b><center>Anggota Hadir $semua2 orang<br>";
+		echo "<b><center>Anggota yang menguasakan $semua3 orang<br>";
+		echo "<b><center>Total Anggota Hadir $jumlahhadir orang<br>";
+		echo "Jumlah Quorum ";
 		echo round($persen,2);
-		echo "%) dari total $semua anggota</b></center>";
+		echo "%<br>Status = Tidak Sah</b></center></div>";
+		}
+		else
+		{
+			?>
+			<div class="alert alert-success" role="alert">
+			<?php
+		echo "<b><center>Jumlah anggota $semua anggota<br>";
+		echo "<b><center>Anggota Hadir $semua2 orang<br>";
+		echo "<b><center>Anggota yang menguasakan $semua3 orang<br>";
+		echo "<b><center>Total Anggota Hadir $jumlahhadir orang<br>";
+		echo "Jumlah Quorum ";
+		echo round($persen,2);
+		echo "%<br>Status = Sah</b></center></div>";
+		}
 	?>
+<form action="printlaporansementara.php">
+		<input type="submit" value="Cetak" class="btn btn-success">
+	</form>
 </div>
 

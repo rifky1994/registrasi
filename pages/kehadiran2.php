@@ -70,7 +70,7 @@ $konek = mysqli_connect('localhost','root','','registrasi');
 									{
 										?>
 							<SCRIPT LANGUAGE="JavaScript">
-							window.alert ("Anggota sudah melakukan Absen !!!");
+							window.alert ("Anggota sudah melakukan Absen1 !!!");
 							window.location.href="?id=1";
 							</SCRIPT>
 							<?php
@@ -78,10 +78,25 @@ $konek = mysqli_connect('localhost','root','','registrasi');
 						}
 						else
 						{
+							$sqlkuasa = "SELECT nama from kuasa, anggota where kuasa.nak=$nak and id_kuasa=anggota.nak limit 0,1";
+							$ambildatakuasa = mysqli_query( $konek,$sqlkuasa);
+							$rowskuasa = mysqli_fetch_array($ambildatakuasa, MYSQL_ASSOC);
+							$nama = $rowskuasa['nama'];
+
+
+							$sqlkuasa2 = "SELECT nama,anggota.nak from kuasa join anggota using (nak) where nak=$nak";
+							$ambildatakuasa2 = mysqli_query( $konek,$sqlkuasa2);
+							$rowskuasa2 = mysqli_fetch_array($ambildatakuasa2, MYSQL_ASSOC);
+							$nama2 = $rowskuasa2['nama'];
+							$nak = $rowskuasa2['nak'];
+
 							?>
 							<SCRIPT LANGUAGE="JavaScript">
-							window.alert ("Anggota sudah melakukan Absen !!!");
-							window.location.href="?id=1";
+							var nama = <?php echo json_encode($nama); ?>;
+							var nama2 = <?php echo json_encode($nama2); ?>;
+							var nak = <?php echo json_encode($nak); ?>;
+							window.alert ('Anggota dengan nak ='+nak+' ,nama ='+nama2+' sudah dikuasakan oleh '+ nama);
+							window.location.href='?id=1';
 							</SCRIPT>
 							<?php
 						}
@@ -112,22 +127,53 @@ $konek = mysqli_connect('localhost','root','','registrasi');
 					}
 				else
 					{
-						?>
+							
+							$sqlkuasa = "SELECT nama from kuasa, anggota where kuasa.nak=$nak and id_kuasa=anggota.nak limit 0,1";
+							$ambildatakuasa = mysqli_query( $konek,$sqlkuasa);
+							$rowskuasa = mysqli_fetch_array($ambildatakuasa, MYSQL_ASSOC);
+							$nama = $rowskuasa['nama'];
+
+
+							$sqlkuasa2 = "SELECT nama,anggota.nak from kuasa join anggota using (nak) where nak=$nak";
+							$ambildatakuasa2 = mysqli_query( $konek,$sqlkuasa2);
+							$rowskuasa2 = mysqli_fetch_array($ambildatakuasa2, MYSQL_ASSOC);
+							$nama2 = $rowskuasa2['nama'];
+							$nak = $rowskuasa2['nak'];
+
+							?>
 							<SCRIPT LANGUAGE="JavaScript">
-							window.alert ("Anggota sudah melakukan Absen !!!");
-							window.location.href="?id=1";
+							var nama = <?php echo json_encode($nama); ?>;
+							var nama2 = <?php echo json_encode($nama2); ?>;
+							var nak = <?php echo json_encode($nak); ?>;
+							window.alert ('Anggota dengan nak ='+nak+' ,nama ='+nama2+' sudah dikuasakan oleh '+ nama);
+							window.location.href='?id=1';
 							</SCRIPT>
 							<?php
 					}
 			}
 			else
 			{
-				?>
-				<SCRIPT LANGUAGE="JavaScript">
-				window.alert ("Anggota sudah melakukan Absen !!!");
-				window.location.href="?id=1";
-				</SCRIPT>
-				<?php
+				$sqlkuasa = "SELECT nama from kuasa, anggota where kuasa.nak=$nak and id_kuasa=anggota.nak limit 0,1";
+							$ambildatakuasa = mysqli_query( $konek,$sqlkuasa);
+							$rowskuasa = mysqli_fetch_array($ambildatakuasa, MYSQL_ASSOC);
+							$nama = $rowskuasa['nama'];
+
+
+							$sqlkuasa2 = "SELECT nama,anggota.nak from kuasa join anggota using (nak) where nak=$nak";
+							$ambildatakuasa2 = mysqli_query( $konek,$sqlkuasa2);
+							$rowskuasa2 = mysqli_fetch_array($ambildatakuasa2, MYSQL_ASSOC);
+							$nama2 = $rowskuasa2['nama'];
+							$nak = $rowskuasa2['nak'];
+
+							?>
+							<SCRIPT LANGUAGE="JavaScript">
+							var nama = <?php echo json_encode($nama); ?>;
+							var nama2 = <?php echo json_encode($nama2); ?>;
+							var nak = <?php echo json_encode($nak); ?>;
+							window.alert ('Anggota dengan nak ='+nak+' ,nama ='+nama2+' sudah dikuasakan oleh '+ nama);
+							window.location.href='?id=1';
+							</SCRIPT>
+							<?php
 			}
 
 	}
@@ -148,7 +194,43 @@ $konek = mysqli_connect('localhost','root','','registrasi');
 }
 	else
 	{
+		$cari = $_POST['nak'];
 
+		$sql = "SELECT * from anggota where nama like '%$cari%' OR nak like '%$cari%' OR nak like '%$cari%'";
+	 	$i=1;
+		mysql_select_db('registrasi');
+		$ambildata = mysql_query( $sql, $koneksi);
+
+
+		$sql4 = "SELECT status from kehadiran where temp=1 and user='$_SESSION[nama]'";
+		$ambildata4 = mysqli_query( $konek,$sql4);
+		while($rows = mysqli_fetch_array($ambildata4, MYSQL_ASSOC))
+		{
+			$statuss=$rows['status'];
+		}
+
+		
+		echo "<form action='?id=4' method='post'>";
+		if(! $ambildata )
+		{
+	  		die('Gagal ambil data: ' . mysql_error());
+		}
+			echo "<table class='table-responsive table-bordered table'><tr><th>ID</th><th>NAK</th><th>NAMA</th><th>NIK</th><th></th></tr>";
+			while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
+		{
+	    	echo "<tr><td>$i</td><td>{$row['nak']}</td><td>{$row['nama']}</td>
+				<td>{$row['nik']}</td><td><input type=radio name='nak' value={$row['nak']}></td></tr>";
+				$i++;
+		} 
+		?>
+		<input class='btn btn-success' size="20px" type="submit" name="tambah" value="Tambah Absensi" />
+		<select class="form-control" name="status">
+												<?php if ($statuss=="HADIR") {} else {?>
+												<option name="hadir" value="HADIR">HADIR</option>
+												<?php }?>
+												<option name="kuasa" value="KUASA">KUASA</option></select>
+		</form>
+		<?php
 	}
 	
 ?>
