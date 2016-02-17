@@ -10,10 +10,10 @@
   
     <h3>Ketentuan Upload Data</h3>
       <ol>  
-        <li>Data berupa excel dengan extensi *.xls (1997-2003)</li>
-        <li>Baris pertama berisikan header tabel, secara berurutan id,nik,nama,nak</li>
-        <li>Baris Selanjutnya berisikan data yang akan diinput</li>
-        <li>Untuk Kolom ke 5 (setelah kolom nak) akan diabaikan</li>
+        <li>Data berupa excel dengan extensi *.xls (1997-2003).</li>
+        <li>Baris pertama berisikan header tabel, secara berurutan id,nik,nama,nak.</li>
+        <li>Baris Selanjutnya berisikan data yang akan diinput.</li>
+        <li>Untuk Kolom ke 5 (setelah kolom nak) akan diabaikan.</li>
       </ol>
   
 <form name="myForm" id="myForm" onSubmit="return validateForm()" method="post" enctype="multipart/form-data">

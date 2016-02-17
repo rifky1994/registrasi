@@ -81,7 +81,7 @@ $html =
   '<html><body>'.
   '<center><b><h3>TANDA TERIMA & REGISTRASI - RAT TAHUN BUKU 2016</h2><b></center><br>'.
   '<table>'.
-  '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=gray><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
+  '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=silver><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
   '<tr><td>Telah Terima Dari</td><td>:</td><td>KOPEGTEL DADALI BANDUNG</td></tr>'.
   '<tr><td>Jumlah</td><td>:</td><td>0</td></tr>'.
   '<tr><td></td><td></td><td><font size=1>(Rupiah)</font></td></tr>'.
@@ -91,11 +91,19 @@ $html =
   '<tr><td align=center>Yang Menerima,</td><td colspan=2 align=center>Verifikasi,</td><td align=center>Yang Membayarkan</td></tr>'.
   '<tr><td><br><br><br></td></tr>'.
   '<tr><td align=center><u>'.$row[nama].'</u></td><td colspan=2 align=center><u>'.$row[user].'</u></td><td  align=center><u>'.$namabendahara.'</u></td></tr>'.
-  '<tr><td align=center>'.$row[nak].'/'.$row[nik].'</td><td colspan=2 align=center>Petugas</td><td align=center>'.$nakbendahara.'/'.$nikbendahara.'</td></tr></table>'.
-  '<hr>'.
+  '<tr><td align=center>'.$row[nak].'/'.$row[nik].'</td><td colspan=2 align=center>Petugas</td><td align=center>'.$nakbendahara.'/'.$nikbendahara.'</td></tr>'.
+  '<tr><td>Lembar 1 /<b> ASLI</b></td></table>'.
+  '<br>'.
+  '<br>'.
+  '<br>'.
+  '<br>'.
+  '<br>'.
+  '<br>'.
+  '<br>'.
+  '<br>'.
   '<center><b><h3>TANDA TERIMA & REGISTRASI - RAT TAHUN BUKU 2016</h2><b></center><br>'.
   '<table>'.
-  '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=gray><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
+  '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=silver><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
   '<tr><td>Telah Terima Dari</td><td>:</td><td>KOPEGTEL DADALI BANDUNG</td></tr>'.
   '<tr><td>Jumlah</td><td>:</td><td>0</td></tr>'.
   '<tr><td></td><td></td><td><font size=1>(Rupiah)</font></td></tr>'.
