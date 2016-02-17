@@ -214,8 +214,9 @@ $konek = mysqli_connect('localhost','root','','registrasi');
 		if(! $ambildata )
 		{
 	  		die('Gagal ambil data: ' . mysql_error());
-		}
-			echo "<table class='table-responsive table-bordered table'><tr><th>ID</th><th>NAK</th><th>NAMA</th><th>NIK</th><th></th></tr>";
+		};
+			echo "<table class='table-responsive table-bordered table'><tr><th>ID</th><th>NAK</th><th>NAMA</th><th>NIK</th><th>Pilih</th></tr>";
+
 			while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 		{
 	    	echo "<tr><td>$i</td><td>{$row['nak']}</td><td>{$row['nama']}</td>
@@ -223,12 +224,28 @@ $konek = mysqli_connect('localhost','root','','registrasi');
 				$i++;
 		} 
 		?>
-		<input class='btn btn-success' size="20px" type="submit" name="tambah" value="Tambah Absensi" />
-		<select class="form-control" name="status">
-												<?php if ($statuss=="HADIR") {} else {?>
-												<option name="hadir" value="HADIR">HADIR</option>
-												<?php }?>
-												<option name="kuasa" value="KUASA">KUASA</option></select>
+
+		<div class="panel panel-primary">
+		    <div class="panel-heading">
+		      <b><center>Mencari Anggota</center></b>
+		    </div>
+		</div>
+			
+				<div class="col-lg-2 col-md-offset-4">
+					<select class="form-control" name="status">
+														<?php if ($statuss=="HADIR") {} else {?>
+														<option name="hadir" value="HADIR">HADIR</option>
+														<?php }?>
+														<option name="kuasa" value="KUASA">KUASA</option></select>
+				</div>
+			
+				<div class="col-lg-4">
+					<input class='btn btn-success' size="20px" type="submit" name="tambah" value="Tambah Absensi" />	
+				</div>
+				<br>
+				<br>
+				<br>
+			
 		</form>
 		<?php
 	}

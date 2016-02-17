@@ -54,7 +54,7 @@ ng.ready( function() {
 </script>
 <center>
 	<form action="print.php">
-		<input type="submit" value="Cetak" class="btn btn-success">
+		<input type="submit" value="Cetak Laporan" class="btn btn-success">
 	</form>
 </center>
 <br>
@@ -149,7 +149,7 @@ $i++;
 		echo "<b><center>Total Anggota Hadir $jumlahhadir orang<br>";
 		echo "Jumlah Quorum ";
 		echo round($persen,2);
-		echo "%<br>Status = Tidak Sah</b></center></div>";
+		echo "%<br>Status = TIDAK SAH</b></center></div>";
 		}
 		else
 		{
@@ -162,11 +162,13 @@ $i++;
 		echo "<b><center>Total Anggota Hadir $jumlahhadir orang<br>";
 		echo "Jumlah Quorum ";
 		echo round($persen,2);
-		echo "%<br>Status = Sah</b></center></div>";
+		echo "%<br>Status = SAH</b></center></div>";
 		}
 	?>
 <form action="printlaporansementara.php">
-		<input type="submit" value="Cetak" class="btn btn-success">
+	<center>
+		<input type="submit" value="Cetak Data Hadir" class="btn btn-success">
+	</center>
 	</form>
 </div>
 

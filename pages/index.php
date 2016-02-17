@@ -213,10 +213,12 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                             <i class="fa fa-user fa-fw"></i>Selamat datang, <b> <?php echo $_SESSION['nama']; ?> </b><i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="?id=10"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                            <li><a href="?id=10"><i class="fa fa-user fa-fw"></i> Edit Profil</a>
+                            </li>
+                            <li><a href="?id=16"><i class="fa fa-user fa-fw"></i> Tambah Bendahara</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Keluar</a>
                             </li>
                         </ul>
                     </li>
@@ -228,9 +230,6 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                     <ul class="nav" id="side-menu">
                         <li>
                             <a href="?id=1"><i class="fa fa-share fa-fw"></i><b> Input Absensi</b></a>
-                        </li>
-                        <li>
-                            <a href="?id=16"><i class="fa fa-share fa-fw"></i><b> Input Bendahara</b></a>
                         </li>
                         <li>
                             <a href="?id=18"><i class="fa fa-share fa-fw"></i><b> Input Kuasa Yang Hadir</b></a>
@@ -256,7 +255,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                             <a href="?id=21"><i class="fa fa-print fa-fw"></i><b> Cetak Kupon (Khusus Kuasa Yang Hadir)</b></a>
                         </li>
                         <li>
-                            <a href="?id=99"><i class="fa fa-delete fa-fw"></i><b> Hapus Data KEhadiran</b></a>
+                            <a href="?id=99"><i class="fa fa-trash fa-fw"></i><b> Hapus Semua Data</b></a>
                         </li>
                         
                     </ul>

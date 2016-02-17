@@ -3,18 +3,18 @@
 		<center><b>Input Anggota Kuasa Yang Hadir</b></center>
 	</div>
 </div>
-
-<form method="post" action="?id=20">
-		<div class="col-lg-4">
-				<input name="cari" type="text" class="form-control" width="200">
+<br>
+		
+		<div class="col-lg-4 col-md-offset-3">
+			<form method="post" action="?id=20">
+			<input name="cari" type="text" class="form-control" width="200">
 		</div>
 		<div class="col-lg-4">
-				<input type="submit" name="cari_anggota" value="Cari Anggota" class="btn btn-primary">
+				<input type="submit" name="cari_anggota" value="Cari Anggota" class="btn btn-info">
 			</form>
 		</div>	
 
 <br>
-
 
 <?php
 
@@ -58,4 +58,6 @@ $i++;
 
 ?>
 </table>
-<input type="submit" name="simpan" value="Simpan Absensi"></form>
+<center>
+	<input type="submit" name="simpan" value="Simpan Absensi" class="btn btn-success"></form>
+</center>

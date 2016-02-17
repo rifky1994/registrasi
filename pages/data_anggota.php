@@ -4,12 +4,12 @@
 	</div>
 </div>
 	<br>
-		<div class="col-lg-4">
+		<div class="col-lg-4 col-md-offset-3">
 			<form method="post" action="?id=15">
 				<input id="timepicker" name="cari" type="text" class="form-control" width="200">
 		</div>
 		<div class="col-lg-4">
-				<input type="submit" name="cari_anggota" value="Cari Anggota" class="btn btn-primary">
+				<input type="submit" name="cari_anggota" value="Cari Anggota" class="btn btn-info">
 			</form>
 		</div>	
 
@@ -38,5 +38,3 @@
 				<td>{$row['nik']}</td></tr>";
 		} 
 	?>
-
-	<a href="ekspor.php" button type="submit" class="btn btn-default">Ekspor Data Anggota</button></a>

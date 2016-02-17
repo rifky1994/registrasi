@@ -54,6 +54,7 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 
 ?>
 </table>
-
-<input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti">
+<center>
+	<input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti">
+</center>
 </form>

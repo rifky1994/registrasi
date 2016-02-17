@@ -4,16 +4,15 @@
 	</div>
 </div>
 
-<form method="post" action="?id=23">
-		<div class="col-lg-4">
-				<input name="cari" type="text" class="form-control" width="200">
+
+		<div class="col-lg-4 col-md-offset-3">
+			<form method="post" action="?id=23">
+			<input name="cari" type="text" class="form-control" width="200">
 		</div>
 		<div class="col-lg-4">
-				<input type="submit" name="cari_anggota" value="Cari Anggota" class="btn btn-primary">
+				<input type="submit" name="cari_anggota" value="Cari Anggota" class="btn btn-info">
 			</form>
 		</div>	
-
-<br>
 
 <?php
 
@@ -63,6 +62,7 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 
 ?>
 </table>
-
-<input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti">
+<center>
+	<input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti">
+</center>
 </form>

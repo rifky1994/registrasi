@@ -21,13 +21,12 @@
 	</div>
 </div>
 <center>
-	<h1 class="page-header">Absensi</h1>
 	<form action="?id=4" method="post">
 		<table>
 			<tr><td>
 
 			
-			<input type="text"name="nak" size="25" class="form-control" placeholder="NAK">
+			<input type="text" name="nak" size="40" class="form-control" placeholder="NAK / Nama / NIK">
 			
 
 			</td><td class="col-md-2"></td>
@@ -39,7 +38,7 @@
 		</table>
 		<br>
 		</select></td><td><input class='btn btn-success' size="20px" type="submit" name="tambah" value="Tambah Absensi" />
-		<input  class='btn btn-success' type='submit' name='cari' value='Cari' /></td></tr>
+		<input  class='btn btn-info' type='submit' name='cari' value='Cari Anggota' /></td></tr>
 	</form>
 </center>
 <hr>
@@ -118,9 +117,7 @@ while($row = mysql_fetch_array($ambildata2, MYSQL_ASSOC))
 
 <center>
 <input  class='btn btn-success' type='submit' name='simpan' value='Simpan Absensi' onclick="return confirm('Absensi Selesai?')"/>
-
-
-<input class='btn btn-success' type='submit' name='hapus' value='Hapus Kehadiran' onclick="return confirm('Akan dihapus?')"/>
-<input class='btn btn-success' type='submit' name='hapus_semua' value='Hapus Semua Data' onclick="return confirm('Akan dihapus?')"/>
+<input class='btn btn-danger' type='submit' name='hapus' value='Hapus Kehadiran' onclick="return confirm('Akan dihapus?')"/>
+<input class='btn btn-danger' type='submit' name='hapus_semua' value='Hapus Semua Data' onclick="return confirm('Akan dihapus?')"/>
 
 </form></center>

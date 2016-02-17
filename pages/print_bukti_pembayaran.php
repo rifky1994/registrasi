@@ -3,16 +3,17 @@
 		<center><b>Cetak Bukti Pembayaran</b></center>
 	</div>
 </div>
-
-<form method="post" action="?id=24">
-		<div class="col-lg-4">
+		
+		<br>
+		<div class="col-lg-4 col-md-offset-3">
+			<form method="post" action="?id=24">
 				<input name="cari" type="text" class="form-control" width="200">
 		</div>
 		<div class="col-lg-4">
-				<input type="submit" name="cari_anggota" value="Cari Anggota" class="btn btn-primary">
+				<input type="submit" name="cari_anggota" value="Cari Anggota" class="btn btn-info">
 			</form>
 		</div>
-		<br>
+		
 <?php
 
 $dbhost = 'localhost';
@@ -27,7 +28,7 @@ $sql = "SELECT * from kehadiran join anggota using (nak) order by no_kupon";
 $ambildata = mysql_query( $sql, $koneksi);
 echo "<form action='print_bukti.php' method='post'>";
 echo "<table border='1' class='table-responsive table-bordered table'>
-<tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th><th>Cetak/Hapus</th></tr>";
+<tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th><th>Cetak</th></tr>";
 $i=1;
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {
@@ -75,7 +76,6 @@ $i++;
 ?>
 
 </table>
-<hr>
 <center>
 	
 		<input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti">
