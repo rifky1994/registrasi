@@ -74,7 +74,7 @@ if (isset($_POST['simpan']))
 		$sql8 = "delete from kehadiran where user='$_SESSION[nama]' and temp=1 ";
 		$eksekusi2 = mysqli_query($konek,$sql8);
 
-		header('location:index.php?id=1');
+		include "kehadiran.php";
 	}
 	else
 	{

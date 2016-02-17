@@ -17,7 +17,6 @@ mysqli_query($konek,$sql);
 
 $insert ="insert into bendahara (nak,nama,nik) values ('$nak','$nama',$nik)";
 mysql_query($insert);
-echo "$insert";
 include ('inputbendahara.php');
 
 ?>

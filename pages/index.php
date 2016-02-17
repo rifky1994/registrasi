@@ -217,6 +217,8 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                             </li>
                             <li><a href="?id=16"><i class="fa fa-user fa-fw"></i> Tambah Bendahara</a>
                             </li>
+                            <li><a href="?id=100"><i class="fa fa-user fa-fw"></i> Hapus Semua Data</a>
+                            </li>
                             <li class="divider"></li>
                             <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Keluar</a>
                             </li>
@@ -254,9 +256,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                         <li>
                             <a href="?id=21"><i class="fa fa-print fa-fw"></i><b> Cetak Kupon (Khusus Kuasa Yang Hadir)</b></a>
                         </li>
-                        <li>
-                            <a href="?id=99"><i class="fa fa-trash fa-fw"></i><b> Hapus Semua Data</b></a>
-                        </li>
+                       
                         
                     </ul>
                 </div>

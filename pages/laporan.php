@@ -170,5 +170,8 @@ $i++;
 		<input type="submit" value="Cetak Data Hadir" class="btn btn-success">
 	</center>
 	</form>
+
+	 <a href="?id=99"><i class="fa fa-trash fa-fw"></i><b> Hapus Semua Data</b></a>
+     
 </div>
 
