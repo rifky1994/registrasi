@@ -13,6 +13,8 @@
 				<input type="submit" name="cari_anggota" value="Cari Anggota" class="btn btn-info">
 			</form>
 		</div>
+
+
 		
 <?php
 
@@ -26,7 +28,7 @@ $sql = "SELECT * from kehadiran join anggota using (nak) order by no_kupon";
  
 
 $ambildata = mysql_query( $sql, $koneksi);
-echo "<form action='print_bukti.php' method='post'>";
+echo "<form action='print_bukti.php' method='post' target='_blank'>";
 echo "<table border='1' class='table-responsive table-bordered table'>
 <tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th><th>Cetak</th></tr>";
 $i=1;

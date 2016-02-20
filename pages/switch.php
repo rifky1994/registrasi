@@ -81,6 +81,12 @@ $link = $_GET['id'];
 	case 100:
 	include "formhapussemua.php";
 	break;
+	case 101:
+	include "inputuang.php";
+	break;
+	case 102:
+	include "prosesinputuang.php";
+	break;
 	default :
 	include "kehadiran.php";
 	break;

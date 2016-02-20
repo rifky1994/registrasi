@@ -27,7 +27,7 @@ mysql_select_db('registrasi');
  
 
 
-echo "<form method=post action='prosescetakkupon.php'>";
+echo "<form method=post action='prosescetakkupon.php' target='_blank'>";
 echo "<table border='1' class='table-responsive table-bordered table'>
 <tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th><th></th></tr>";
 $i=1;

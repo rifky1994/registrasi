@@ -10,6 +10,25 @@ $konek = mysqli_connect('localhost','root','','registrasi');
 $nak= $_POST['hadir'];
 
 
+$sqlcek = "SELECT * from kuasa where nak='$nak'";
+              $ambildatacek = mysqli_query( $konek,$sqlcek);
+              $rowscek = mysqli_fetch_array($ambildatacek, MYSQL_ASSOC);
+              $cek = $rowscek['cetak'];
+
+if ($cek == 1)
+{
+  ?>
+              <SCRIPT LANGUAGE="JavaScript">
+              window.alert ("Data Sudah Dicetak");
+              this.close();
+              </SCRIPT>
+  <?php
+}
+
+else
+{
+
+
 $tahun = date("Y");
 $bulan = date("n");
 switch ($bulan) {
@@ -79,6 +98,11 @@ $no_kupon = $rows['no_kupon'];
 
 $html =
   '<html><body>'.
+  '<script type=text/javascript>
+  try {
+    this.print();
+  }
+  </script>'.
   '<center><b><h3>TANDA TERIMA & REGISTRASI - RAT TAHUN BUKU 2016</h2><b></center><br>'.
   '<table>'.
   '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=gray><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
@@ -92,7 +116,7 @@ $html =
   '<tr><td><br><br><br></td></tr>'.
   '<tr><td align=center><u>'.$row[nama].'</u></td><td colspan=2 align=center><u>'.$row[user].'</u></td><td  align=center><u>'.$namabendahara.'</u></td></tr>'.
   '<tr><td align=center>'.$row[nak].'/'.$row[nik].'</td><td colspan=2 align=center>Petugas</td><td align=center>'.$nakbendahara.'/'.$nikbendahara.'</td></tr></table>'.
-  '<hr>'.
+  '<br>'.
   '<center><b><h3>TANDA TERIMA & REGISTRASI - RAT TAHUN BUKU 2016</h2><b></center><br>'.
   '<table>'.
   '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=gray><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
@@ -108,8 +132,13 @@ $html =
   '<tr><td align=center>'.$row[nak].'/'.$row[nik].'</td><td colspan=2 align=center>Petugas</td><td align=center>'.$nakbendahara.'/'.$nikbendahara.'</td></tr></table>'.
   '</html></body></html>';
 
+$sqlupdate = "update kuasa set cetak=1 where nak=$row[nak]";
+    $update = mysqli_query( $konek,$sqlupdate);
+
+
 $dompdf = new DOMPDF();
 $dompdf->load_html($html);
 $dompdf->render();
-$dompdf->stream('Laporan_'.$row[nama].'.pdf');
+$dompdf->stream('Laporan_'.$row[nama].'.pdf', array("Attachment" => false));
+}
 ?>

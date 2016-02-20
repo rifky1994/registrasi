@@ -217,8 +217,24 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                             </li>
                             <li><a href="?id=16"><i class="fa fa-user fa-fw"></i> Tambah Bendahara</a>
                             </li>
+                            
+                            <?php
+
+                            if ($_SESSION['nama']=='admin')
+                            {
+
+                            ?>
+                            <li><a href="?id=101"><i class="fa fa-user fa-fw"></i> Input Uang</a>
+                            </li>
                             <li><a href="?id=100"><i class="fa fa-user fa-fw"></i> Hapus Semua Data</a>
                             </li>
+
+                            <?php
+                            }
+                            else
+                            {}
+                            ?>
+
                             <li class="divider"></li>
                             <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Keluar</a>
                             </li>

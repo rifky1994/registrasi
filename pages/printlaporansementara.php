@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+set_include_path(get_include_path() . PATH_SEPARATOR . "/path/to/dompdf");
 require_once("dompdf/dompdf_config.inc.php");
 
 $dbhost = 'localhost';
@@ -23,39 +24,56 @@ mysql_select_db('registrasi');
 		$row3 = mysql_fetch_array($ambildata3, MYSQL_ASSOC);
 		$semua3=$row3['nak'];
 
+		$sql4 = "SELECT * FROM bayar";
+		$ambildata4 = mysql_query( $sql4, $koneksi);
+		$row4 = mysql_fetch_array($ambildata4, MYSQL_ASSOC);
+		$bayar=$row4['bayar'];
+
 		$jumlahhadir = $semua2 + $semua3;
+		$uang = $jumlahhadir*$bayar;
+		$jumlahhadir = $semua2 + $semua3;
+		$uang = $jumlahhadir*$bayar;
+
+		$jumlah_desimal ="0";
+		$pemisah_desimal =",";
+		$pemisah_ribuan =".";
+		$tampil_bayar =  "Rp".number_format($uang, $jumlah_desimal, $pemisah_desimal, $pemisah_ribuan);
+
 
 		$persen = ($jumlahhadir / $semua) * 100;
 		$tampil = round($persen,2);
 		if ($persen <50)
 		{
 			
-			$html ="<center><h1>Laporan Kehadiran Sementara</h1>
-		<b>Jumlah anggota $semua anggota<br>
-		Anggota Hadir $semua2 orang<br>
-		Anggota yang menguasakan $semua3 orang<br>
-		Total Anggota Hadir $jumlahhadir orang<br>
-		Jumlah Quorum
-		$tampil
-		%<br>Status = Tidak Sah</b></center>";
-		}
-		else
-		{
-			
-			$html ="<center><h1>Laporan Kehadiran Sementara</h1>
+			$html ="<html><body><center><h1>Laporan Kehadiran Sementara</h1>
 		Jumlah anggota $semua anggota<br>
 		Anggota Hadir $semua2 orang<br>
 		Anggota yang menguasakan $semua3 orang<br>
 		Total Anggota Hadir $jumlahhadir orang<br>
 		Jumlah Quorum
 		$tampil
-		%<br>Status = Sah</b></center></div>";
+		%<br>Status = Tidak Sah</b>
+		Total Pembayaran = $tampil_bayar</div></center></body></html>";
+		}
+		else
+		{
+			
+			$html ="<html><body><center><h1>Laporan Kehadiran Sementara</h1>
+		Jumlah anggota $semua anggota<br>
+		Anggota Hadir $semua2 orang<br>
+		Anggota yang menguasakan $semua3 orang<br>
+		Total Anggota Hadir $jumlahhadir orang<br>
+		Jumlah Quorum
+		$tampil
+		%<br>Status = Sah</b>
+		Total Pembayaran = $tampil_bayar</div></center></body></html>";
 		}
 
  
 $dompdf = new DOMPDF();
 $dompdf->load_html($html);
 $dompdf->render();
-$dompdf->stream('Laporan_Kehadiran_Sementara.pdf');
+$dompdf->stream('Laporan_Kehadiran_Sementara.pdf', array("Attachment" => false));
+
 
 	?>

@@ -13,9 +13,10 @@ if (isset($_POST['login']))
 $nak = $_POST['nak'];
 $password = $_POST['password'];
 // query untuk mendapatkan record dari nak
-$query = "SELECT * FROM user WHERE nak = $nak";
+$query = "SELECT * FROM user WHERE nak = '$nak'";
 $hasil = mysql_query($query);
 $data = mysql_fetch_array($hasil);
+echo "$query";
 // cek kesesuaian passwordword
 if ($password == $data['password'])
 {

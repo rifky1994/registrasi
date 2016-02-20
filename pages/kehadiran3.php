@@ -63,7 +63,7 @@ if (isset($_POST['simpan']))
 		$sql8 = "delete from kehadiran where nak=$hapus and user='$_SESSION[nama]' and temp=1 ";
 		$eksekusi = mysqli_query($konek,$sql8);
 		
-		header('location:index.php?id=1');
+		include "kehadiran.php";
 				
 	}
 	else if (isset($_POST['hapus_semua']))

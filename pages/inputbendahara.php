@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
-      <b><center>Tambah Anggota Bendahara</center></b>
+      <b><center>Ubah Data Bendahara</center></b>
     </div>
   </div>
 <?php

@@ -24,11 +24,27 @@ if(isset($_POST['hapus_bukti']))
 }
 else 
 {
+    
+$nak= $_POST['cetak'];
 
+    $sqlcek = "SELECT * from kehadiran where nak='$nak'";
+              $ambildatacek = mysqli_query( $konek,$sqlcek);
+              $rowscek = mysqli_fetch_array($ambildatacek, MYSQL_ASSOC);
+              $cek = $rowscek['cetak'];
 
+if ($cek == 1)
+{
+  ?>
+              <SCRIPT LANGUAGE="JavaScript">
+              window.alert ("Data Sudah Dicetak");
+              this.close();
+              </SCRIPT>
+  <?php
+}
 
-
-    $nak= $_POST['cetak'];
+else
+{
+    
 
 
 $tahun = date("Y");
@@ -97,22 +113,37 @@ while ($rows = mysql_fetch_assoc($sqlll))
 {
     array_push($data, $rows['nama']);
 }
+
+$sqluang = "SELECT * from bayar";
+              $ambildatabayar = mysqli_query( $konek,$sqluang);
+              $rowsbayar = mysqli_fetch_array($ambildatabayar, MYSQL_ASSOC);
+              $databayar = $rowsbayar['bayar'];
+
+
+
 $i=1;
-$bayar = $i * 500000;
+$bayar = $i * $databayar;
 $i=2;
 $keluar='';
+$jumlah_desimal ="0";
+$pemisah_desimal =",";
+$pemisah_ribuan =".";
+$tampildatabayar =  number_format($databayar, $jumlah_desimal, $pemisah_desimal, $pemisah_ribuan);
+
+
+
+
+
 foreach ($data as $val) 
 {
-    $keluar .= ' '.$i.'.'.$val .'(500.000)';
+    $keluar .= ' '.$i.'.'.$val .'($tampildatabayar)';
     $i++;
 }
  
 
-$jumlah_desimal ="0";
-$pemisah_desimal =".";
-$pemisah_ribuan =",";
+
 if ($i>1)
-{$bayar=($i-1)*500000;} 
+{$bayar=($i-1)*$databayar;} 
 $tampil_bayar =  "Rp".number_format($bayar, $jumlah_desimal, $pemisah_desimal, $pemisah_ribuan);
 
 require ('moneyFormat.php');
@@ -125,6 +156,11 @@ $terbilang = $moneyFormat->terbilang($bayar);
 
 $html =
   '<html><body>'.
+  '<script type=text/javascript>
+  try {
+    this.print();
+  }
+  </script>'.
   '<center><b><h3>TANDA TERIMA & REGISTRASI - RAT TAHUN BUKU 2016</h2><b></center><br>'.
   '<table>'.
   '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=silver><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
@@ -132,7 +168,7 @@ $html =
   '<tr><td>Jumlah</td><td>:</td><td>'.$tampil_bayar.'</td></tr>'.
   '<tr><td></td><td></td><td><font size=1>('.$terbilang.' Rupiah)</font></td></tr>'.
   '<tr><td>Untuk Pembayaran</td><td>:</td><td colspan=2>Biaya Transportasi RAT 2016 atas nama :</td></tr>'.
-  '<tr><td></td><td></td><td colspan=2><font size=1>1.'.$row[nama].'(500.000)'.$keluar.'</td></tr>'.
+  '<tr><td></td><td></td><td colspan=2><font size=1>1.'.$row[nama].'('.$tampildatabayar.')'.$keluar.'</td></tr>'.
   '<tr><td colspan=3></td><td align=center>Bandung, '.$waktu.'</td></tr>'.
   '<tr><td align=center>Yang Menerima,</td><td colspan=2 align=center>Verifikasi,</td><td align=center>Yang Membayarkan</td></tr>'.
   '<tr><td><br><br><br></td></tr>'.
@@ -154,7 +190,7 @@ $html =
   '<tr><td>Jumlah</td><td>:</td><td>'.$tampil_bayar.'</td></tr>'.
   '<tr><td></td><td></td><td><font size=1>('.$terbilang.' Rupiah)</font></td></tr>'.
   '<tr><td>Untuk Pembayaran</td><td>:</td><td colspan=2>Biaya Transportasi RAT 2016 atas nama :</td></tr>'.
-  '<tr><td></td><td></td><td colspan=2><font size=1>1.'.$row[nama].'(500.000)'.$keluar.'</td></tr>'.
+  '<tr><td></td><td></td><td colspan=2><font size=1>1.'.$row[nama].'('.$tampildatabayar.')'.$keluar.'</td></tr>'.
   '<tr><td colspan=3></td><td align=center>Bandung, '.$waktu.'</td></tr>'.
   '<tr><td align=center>Yang Menerima,</td><td colspan=2 align=center>Verifikasi,</td><td align=center>Yang Membayarkan</td></tr>'.
   '<tr><td><br><br><br></td></tr>'.
@@ -162,9 +198,12 @@ $html =
   '<tr><td align=center>'.$row[nak].'/'.$row[nik].'</td><td colspan=2 align=center>Petugas</td><td align=center>'.$nakbendahara.'/'.$nikbendahara.'</td></tr></table>'.
   '</html></body></html>';
 
+$sqlupdate = "update kehadiran set cetak=1 where nak=$row[nak]";
+    $update = mysqli_query( $konek,$sqlupdate);
+
 $dompdf = new DOMPDF();
 $dompdf->load_html($html);
 $dompdf->render();
-$dompdf->stream('Laporan_'.$row[nama].'.pdf');
-}
+$dompdf->stream('Laporan_'.$row[nama].'.pdf', array("Attachment" => false));
+}}
 ?>

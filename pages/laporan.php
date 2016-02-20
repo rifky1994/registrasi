@@ -53,7 +53,7 @@ ng.ready( function() {
 });
 </script>
 <center>
-	<form action="print.php">
+	<form action="print.php" target="_blank">
 		<input type="submit" value="Cetak Laporan" class="btn btn-success">
 	</form>
 </center>
@@ -135,8 +135,18 @@ $i++;
 		$row3 = mysql_fetch_array($ambildata3, MYSQL_ASSOC);
 		$semua3=$row3['nak'];
 
-		$jumlahhadir = $semua2 + $semua3;
+		$sql4 = "SELECT * FROM bayar";
+		$ambildata4 = mysql_query( $sql4, $koneksi);
+		$row4 = mysql_fetch_array($ambildata4, MYSQL_ASSOC);
+		$bayar=$row4['bayar'];
 
+		$jumlahhadir = $semua2 + $semua3;
+		$uang = $jumlahhadir*$bayar;
+
+		$jumlah_desimal ="0";
+		$pemisah_desimal =",";
+		$pemisah_ribuan =".";
+		$tampil_bayar =  "Rp".number_format($uang, $jumlah_desimal, $pemisah_desimal, $pemisah_ribuan);
 		$persen = ($jumlahhadir / $semua) * 100;
 		if ($persen <50)
 		{
@@ -149,7 +159,8 @@ $i++;
 		echo "<b><center>Total Anggota Hadir $jumlahhadir orang<br>";
 		echo "Jumlah Quorum ";
 		echo round($persen,2);
-		echo "%<br>Status = TIDAK SAH</b></center></div>";
+		echo "%<br>Status = TIDAK SAH</b></center>
+		Total Pembayaran = $tampil_bayar</div>";
 		}
 		else
 		{
@@ -162,16 +173,17 @@ $i++;
 		echo "<b><center>Total Anggota Hadir $jumlahhadir orang<br>";
 		echo "Jumlah Quorum ";
 		echo round($persen,2);
-		echo "%<br>Status = SAH</b></center></div>";
+		echo "%<br>Status = SAH</b></center>
+		Total Pembayaran = $tampil_bayar</div>";
 		}
 	?>
-<form action="printlaporansementara.php">
+<form action="printlaporansementara.php" target="_blank">
 	<center>
 		<input type="submit" value="Cetak Data Hadir" class="btn btn-success">
 	</center>
 	</form>
 
-	 <a href="?id=99"><i class="fa fa-trash fa-fw"></i><b> Hapus Semua Data</b></a>
+	
      
 </div>
 
