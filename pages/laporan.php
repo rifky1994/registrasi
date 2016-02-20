@@ -55,6 +55,7 @@ ng.ready( function() {
 <center>
 	<form action="print.php" target="_blank">
 		<input type="submit" value="Cetak Laporan" class="btn btn-success">
+		<a href="?id=99" class="btn btn-danger"><i class="fa fa-trash fa-fw"></i><b> Hapus Semua Data</b></a>
 	</form>
 </center>
 <br>
@@ -183,7 +184,11 @@ $i++;
 	</center>
 	</form>
 
+<<<<<<< HEAD
 	
+=======
+	 
+>>>>>>> da51c4c952542c0d1b648c0cbebecbf11fe6f753
      
 </div>
 

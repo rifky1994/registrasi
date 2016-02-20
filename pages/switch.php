@@ -75,6 +75,9 @@ $link = $_GET['id'];
 	case 24:
 	include "cariprintbtukti.php";
 	break;
+	case 25:
+	include "help.php";
+	break;
 	case 99:
 	include "hapussemua.php";
 	break;

@@ -217,6 +217,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                             </li>
                             <li><a href="?id=16"><i class="fa fa-user fa-fw"></i> Tambah Bendahara</a>
                             </li>
+<<<<<<< HEAD
                             
                             <?php
 
@@ -227,6 +228,11 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                             <li><a href="?id=101"><i class="fa fa-user fa-fw"></i> Input Uang</a>
                             </li>
                             <li><a href="?id=100"><i class="fa fa-user fa-fw"></i> Hapus Semua Data</a>
+=======
+                            <li><a href="?id=25"><i class="fa fa-cog fa-fw"></i> Tutorial</a>
+                            </li>
+                            <li><a href="?id=100"><i class="fa fa-trash fa-fw"></i> Hapus Semua Data</a>
+>>>>>>> da51c4c952542c0d1b648c0cbebecbf11fe6f753
                             </li>
 
                             <?php

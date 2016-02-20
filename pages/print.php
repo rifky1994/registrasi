@@ -44,7 +44,7 @@ foreach ($header as $kolom)
 }
 $pdf -> Ln();
 
-$pdf ->SetFillColor(200,200,200);
+$pdf ->SetFillColor(255,255,255);
 $pdf ->SetTextColor(0);
 $pdf ->SetFont('');
 $fill=false;
