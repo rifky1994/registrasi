@@ -105,7 +105,7 @@ $html =
   </script>'.
   '<center><b><h3>TANDA TERIMA & REGISTRASI - RAT TAHUN BUKU 2016</h2><b></center><br>'.
   '<table>'.
-  '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=silver><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
+  '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=silver>No Kupon : <br><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
   '<tr><td>Telah Terima Dari</td><td>:</td><td>KOPEGTEL DADALI BANDUNG</td></tr>'.
   '<tr><td>Jumlah</td><td>:</td><td>0</td></tr>'.
   '<tr><td></td><td></td><td><font size=1>(Rupiah)</font></td></tr>'.
@@ -126,7 +126,7 @@ $html =
   '<br>'.
   '<center><b><h3>TANDA TERIMA & REGISTRASI - RAT TAHUN BUKU 2016</h2><b></center><br>'.
   '<table>'.
-  '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=silver><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
+  '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=silver>No Kupon : <br><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
   '<tr><td>Telah Terima Dari</td><td>:</td><td>KOPEGTEL DADALI BANDUNG</td></tr>'.
   '<tr><td>Jumlah</td><td>:</td><td>0</td></tr>'.
   '<tr><td></td><td></td><td><font size=1>(Rupiah)</font></td></tr>'.

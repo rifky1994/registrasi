@@ -52,7 +52,7 @@ mysql_select_db('registrasi');
 		Total Anggota Hadir $jumlahhadir orang<br>
 		Jumlah Quorum
 		$tampil
-		%<br>Status = Tidak Sah</b>
+		%<br>Status = Tidak Sah</b><br>
 		Total Pembayaran = $tampil_bayar</div></center></body></html>";
 		}
 		else
@@ -65,7 +65,7 @@ mysql_select_db('registrasi');
 		Total Anggota Hadir $jumlahhadir orang<br>
 		Jumlah Quorum
 		$tampil
-		%<br>Status = Sah</b>
+		%<br>Status = Sah</b><br>
 		Total Pembayaran = $tampil_bayar</div></center></body></html>";
 		}
 

@@ -90,6 +90,9 @@ $link = $_GET['id'];
 	case 102:
 	include "prosesinputuang.php";
 	break;
+	case 999:
+	include "hapus.php";
+	break;
 	default :
 	include "kehadiran.php";
 	break;

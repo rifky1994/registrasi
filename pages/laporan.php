@@ -71,8 +71,8 @@ $sql = "SELECT * from kehadiran join anggota using (nak) order by no_kupon";
 
 $ambildata = mysql_query( $sql, $koneksi);
 
-echo "<table border='1' class='table-responsive table-bordered table'>
-<tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th></tr>";
+echo "<form method=post action=?id=999><table border='1' class='table-responsive table-bordered table'>
+<tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th><th>Hapus</th></tr>";
 $i=1;
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {
@@ -87,6 +87,7 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 	<td>{$row['user']}</td>
 	<td>{$row['id_kuasa']}</td>
 	<td>{$row['waktu']}</td>
+	<td><input type=radio name=hapus value={$row['nak']}></td>
 	
 
 	
@@ -109,6 +110,7 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 	<td>{$row['user']}</td>
 	<td>{$row['id_kuasa']}</td>
 	<td>{$row['waktu']}</td>
+	<td><input type=radio name=hapus value={$row['nak']}></td>
 
 	
 </tr>";
@@ -117,6 +119,8 @@ $i++;
 
 ?>
 </table>
+<input type="submit" name="hapuss" value="Hapus Data" onclick="return confirm('Data Akan dihapus?')" class="btn btn-danger">
+</form>
 <hr>
 
 	<?php

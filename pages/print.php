@@ -18,13 +18,13 @@ $judul = "Laporan Kehadiran";
 $header = array (
 	array("label"=>"ID","length"=>10,"align"=>"L"),
 	array("label"=>"NAK","length"=>10,"align"=>"L"),
-	array("label"=>"NAMA","length"=>42,"align"=>"L"),
+	array("label"=>"NAMA","length"=>44,"align"=>"L"),
 	array("label"=>"NIK","length"=>15,"align"=>"L"),
-	array("label"=>"Status","length"=>17,"align"=>"L"),
-	array("label"=>"No Kupon","length"=>20,"align"=>"L"),
+	array("label"=>"Status","length"=>15,"align"=>"L"),
+	array("label"=>"No Kupon","length"=>17,"align"=>"L"),
 	array("label"=>"ID kuasa","length"=>15,"align"=>"L"),
-	array("label"=>"User","length"=>35,"align"=>"L"),
-	array("label"=>"Waktu","length"=>35,"align"=>"L"),
+	array("label"=>"User","length"=>38,"align"=>"L"),
+	array("label"=>"Waktu","length"=>31,"align"=>"L"),
 	);
 
 require_once ("fpdf/fpdf.php");
