@@ -29,7 +29,7 @@ mysql_select_db('registrasi');
 
 echo "<form method=post action='prosescetakkupon.php' target='_blank'>";
 echo "<table border='1' class='table-responsive table-bordered table'>
-<tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th><th></th></tr>";
+<tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th><th>Cetak</th></tr>";
 $i=1;
 
 
@@ -51,9 +51,12 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 			<td>{$row['no_kupon']}</td>
 			<td>{$row['user']}</td>
 			<td>{$row['id_kuasa']}</td>
-			<td>{$row['waktu']}</td>
-			<td><input type='radio' name='hadir' value={$row['nak']}></td>
-			</tr>";
+			<td>{$row['waktu']}</td>";
+			if ($row['cetak']==0)
+			{
+			echo "<td><input type='radio' name='hadir' value={$row['nak']}></td>";
+			}
+			echo "</tr>";
 			$i++;
 		
 	

@@ -55,13 +55,26 @@ if (isset($_POST['simpan']))
 	{
 		$hapus = $_POST['hapus_anggota'];
 
+		$sql9 = "SELECT * from kehadiran where nak=$hapus and user='$_SESSION[nama]' and temp=1 ";
+		$eksekusi2 = mysqli_query($konek,$sql9);
+		$record = mysqli_num_rows($eksekusi2);
 
-		$sql7 = "delete from kuasa where nak=$hapus and user='$_SESSION[nama]' and temp=1 ";
-		$eksekusi = mysqli_query($konek,$sql7);
-		
-		
 		$sql8 = "delete from kehadiran where nak=$hapus and user='$_SESSION[nama]' and temp=1 ";
 		$eksekusi = mysqli_query($konek,$sql8);
+
+		if ($record==0)
+		{
+			$sql7 = "delete from kuasa where nak=$hapus and user='$_SESSION[nama]' and temp=1 ";
+		$eksekusi = mysqli_query($konek,$sql7);
+		
+		}
+		else
+		{
+		$sql7 = "delete from kuasa where user='$_SESSION[nama]' and temp=1 ";
+		$eksekusi = mysqli_query($konek,$sql7);	
+		}
+		
+		
 		
 		include "kehadiran.php";
 				

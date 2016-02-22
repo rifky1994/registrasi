@@ -136,7 +136,7 @@ $tampildatabayar =  number_format($databayar, $jumlah_desimal, $pemisah_desimal,
 
 foreach ($data as $val) 
 {
-    $keluar .= ' '.$i.'.'.$val .'($tampildatabayar)';
+    $keluar .= ' '.$i.'.'.$val .'('.$tampildatabayar.')';
     $i++;
 }
  
@@ -163,12 +163,12 @@ $html =
   </script>'.
   '<center><b><h3>TANDA TERIMA & REGISTRASI - RAT TAHUN BUKU 2016</h2><b></center><br>'.
   '<table>'.
-  '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=silver><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
+  '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=silver>No Kupon :<br><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
   '<tr><td>Telah Terima Dari</td><td>:</td><td>KOPEGTEL DADALI BANDUNG</td></tr>'.
   '<tr><td>Jumlah</td><td>:</td><td>'.$tampil_bayar.'</td></tr>'.
   '<tr><td></td><td></td><td><font size=1>('.$terbilang.' Rupiah)</font></td></tr>'.
   '<tr><td>Untuk Pembayaran</td><td>:</td><td colspan=2>Biaya Transportasi RAT 2016 atas nama :</td></tr>'.
-  '<tr><td></td><td></td><td colspan=2><font size=1>1.'.$row[nama].'('.$tampildatabayar.')'.$keluar.'</td></tr>'.
+  '<tr><td></td><td></td><td colspan=2 align=left valign=top height=50px><font size=1>1.'.$row[nama].'('.$tampildatabayar.')'.$keluar.'</td></tr>'.
   '<tr><td colspan=3></td><td align=center>Bandung, '.$waktu.'</td></tr>'.
   '<tr><td align=center>Yang Menerima,</td><td colspan=2 align=center>Verifikasi,</td><td align=center>Yang Membayarkan</td></tr>'.
   '<tr><td><br><br><br></td></tr>'.
@@ -179,18 +179,14 @@ $html =
   '<br>'.
   '<br>'.
   '<br>'.
-  '<br>'.
-  '<br>'.
-  '<br>'.
-  '<br>'.
   '<center><b><h3>TANDA TERIMA & REGISTRASI - RAT TAHUN BUKU 2016</h2><b></center><br>'.
   '<table>'.
-  '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=silver><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
+  '<tr><td>No. Registrasi</td><td>:</td><td>'.$row[no_kupon].'</td><td align=center bgcolor=silver>No Kupon :<br><font size=5><b>'.$row[no_kupon].'</b></font></td></tr>'.
   '<tr><td>Telah Terima Dari</td><td>:</td><td>KOPEGTEL DADALI BANDUNG</td></tr>'.
   '<tr><td>Jumlah</td><td>:</td><td>'.$tampil_bayar.'</td></tr>'.
   '<tr><td></td><td></td><td><font size=1>('.$terbilang.' Rupiah)</font></td></tr>'.
   '<tr><td>Untuk Pembayaran</td><td>:</td><td colspan=2>Biaya Transportasi RAT 2016 atas nama :</td></tr>'.
-  '<tr><td></td><td></td><td colspan=2><font size=1>1.'.$row[nama].'('.$tampildatabayar.')'.$keluar.'</td></tr>'.
+  '<tr><td></td><td></td><td colspan=2  align=left valign=top height=50px><font size=1>1.'.$row[nama].'('.$tampildatabayar.')'.$keluar.'</td></tr>'.
   '<tr><td colspan=3></td><td align=center>Bandung, '.$waktu.'</td></tr>'.
   '<tr><td align=center>Yang Menerima,</td><td colspan=2 align=center>Verifikasi,</td><td align=center>Yang Membayarkan</td></tr>'.
   '<tr><td><br><br><br></td></tr>'.

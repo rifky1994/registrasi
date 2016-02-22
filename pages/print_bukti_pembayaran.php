@@ -44,19 +44,31 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 	<td>{$row['no_kupon']}</td>
 	<td>{$row['user']}</td>
 	<td>{$row['id_kuasa']}</td>
-	<td>{$row['waktu']}</td>
-	<td align=center><input type='radio' name='cetak' value='{$row['id_kuasa']}'></td>
+	<td>{$row['waktu']}</td>";
+
+	if ($row['cetak']==0)
+	{
+	echo "<td align=center><input type='radio' name='cetak' value='{$row['id_kuasa']}'></td>";
+	}
 	
-	
-</tr>";
+echo "</tr>";
 $i++;
 } 
 
 $sql = "SELECT * from kuasa join anggota using (nak) where status2<>'HADIR' order by no_kupon";
 $ambildata = mysql_query( $sql, $koneksi);
+
+
+$sql2 = "SELECT kehadiran.cetak from kuasa join kehadiran using (id_kuasa) where status2<>'HADIR'";
+$ambildata2 = mysql_query( $sql2, $koneksi);
+$rows = mysql_fetch_array($ambildata2, MYSQL_ASSOC);
+
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {
 	
+
+	
+
     echo "<tr id=biasa>
 	<td>$i</td>
 	<td>{$row['nak']}</td>
@@ -66,11 +78,13 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 	<td>{$row['no_kupon']}</td>
 	<td>{$row['user']}</td>
 	<td>{$row['id_kuasa']}</td>
-	<td>{$row['waktu']}</td>
-	<td align=center><input type='radio' name='cetak' value='{$row['id_kuasa']}'></td>
-
+	<td>{$row['waktu']}</td>";
+	if ($rows['cetak']==0)
+	{
+	echo "<td align=center><input type='radio' name='cetak' value='{$row['id_kuasa']}'></td>";
+	}
 	
-</tr>";
+echo "</tr>";
 $i++;
 } 
 
