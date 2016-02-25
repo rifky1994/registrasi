@@ -54,10 +54,14 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 	<td>{$row['user']}</td>
 	<td>{$row['id_kuasa']}</td>
 	<td>{$row['waktu']}</td>";
+	if (($_SESSION['level']=='user') AND ($row['cetak']==1))
+	{
 
-	
+	}
+	else
+	{
 	echo "<td align=center><input type='radio' name='cetak' value='{$row['id_kuasa']}'></td>";
-	
+	}
 	
 echo "</tr>";
 $i++;
@@ -87,9 +91,14 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 	<td>{$row['user']}</td>
 	<td>{$row['id_kuasa']}</td>
 	<td>{$row['waktu']}</td>";
-	
+	if (($_SESSION['level']=='user') AND ($row['cetak']==1))
+	{
+
+	}
+	else
+	{
 	echo "<td align=center><input type='radio' name='cetak' value='{$row['id_kuasa']}'></td>";
-	
+	}
 	
 echo "</tr>";
 $i++;

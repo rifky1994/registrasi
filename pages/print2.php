@@ -41,6 +41,11 @@ $hitung = count($nak);
 $i=1;
 $gabung = array_merge($nak,$nama,$nik);
 //foreach (array_combine($nak,$nama,$nik,$status,$no_kupon,$id_kuasa,$user,$waktu) as $val=>$val2=>$val3=>$val4=>$val5=>$val6=>$val7=>$val8) 
+for ($i;$i=$hitung;$i++)
+{
+  ${"variable$i"} = "";
+}
+
 foreach ($gabung as $val)
 {   
 
