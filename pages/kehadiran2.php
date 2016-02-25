@@ -70,7 +70,7 @@ $konek = mysqli_connect('localhost','root','','registrasi');
 									{
 										?>
 							<SCRIPT LANGUAGE="JavaScript">
-							window.alert ("Anggota sudah melakukan Absen1 !!!");
+							window.alert ("Anggota sudah melakukan Absen !!!");
 							window.location.href="?id=1";
 							</SCRIPT>
 							<?php

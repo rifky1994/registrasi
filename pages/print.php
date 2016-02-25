@@ -14,25 +14,25 @@ while ($row = mysql_fetch_assoc($sql))
 
 
 
-$judul = "Laporan Kehadiran";
+$judul = "LAPORAN KEHADIRAN";
 $header = array (
-	array("label"=>"ID","length"=>10,"align"=>"L"),
+	array("label"=>"No","length"=>10,"align"=>"L"),
 	array("label"=>"NAK","length"=>10,"align"=>"L"),
-	array("label"=>"NAMA","length"=>44,"align"=>"L"),
+	array("label"=>"Nama","length"=>44,"align"=>"L"),
 	array("label"=>"NIK","length"=>15,"align"=>"L"),
 	array("label"=>"Status","length"=>15,"align"=>"L"),
 	array("label"=>"No Kupon","length"=>17,"align"=>"L"),
-	array("label"=>"ID kuasa","length"=>15,"align"=>"L"),
+	array("label"=>"Id Kuasa","length"=>15,"align"=>"L"),
 	array("label"=>"User","length"=>38,"align"=>"L"),
 	array("label"=>"Waktu","length"=>31,"align"=>"L"),
 	);
 
 require_once ("fpdf/fpdf.php");
-$pdf = new FPDF();
+$pdf = new FPDF('P','mm','A4');
 $pdf -> AddPage();
 
 $pdf ->SetFont('Arial','B','16');
-$pdf -> Cell(0,20,$judul,'0',1,'c');
+$pdf -> Cell(0,20,$judul,'0',1,'C');
 
 $pdf ->SetFont('Arial','','9');
 $pdf ->SetFillColor(0,0,0);

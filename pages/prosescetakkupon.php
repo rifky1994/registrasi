@@ -1,4 +1,5 @@
 <?php
+session_start();
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 require_once("dompdf/dompdf_config.inc.php");
 
@@ -15,7 +16,7 @@ $sqlcek = "SELECT * from kuasa where nak='$nak'";
               $rowscek = mysqli_fetch_array($ambildatacek, MYSQL_ASSOC);
               $cek = $rowscek['cetak'];
 
-if ($cek == 1)
+if (($cek == 1) AND ($_SESSION['level']=='user'))
 {
   ?>
               <SCRIPT LANGUAGE="JavaScript">
@@ -137,7 +138,7 @@ $html =
   '<tr><td><br><br><br></td></tr>'.
   '<tr><td align=center><u>'.$row[nama].'</u></td><td colspan=2 align=center><u>'.$row[user].'</u></td><td  align=center><u>'.$namabendahara.'</u></td></tr>'.
   '<tr><td align=center>'.$row[nak].'/'.$row[nik].'</td><td colspan=2 align=center>Petugas</td><td align=center>'.$nakbendahara.'/'.$nikbendahara.'</td></tr>'.
-  '</table>'.
+  '<tr><td>Lembar 2 /<b> Copy</b></td></table>'.
   '</html></body></html>';
 
 $sqlupdate = "update kuasa set cetak=1 where nak=$row[nak]";

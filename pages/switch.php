@@ -78,6 +78,12 @@ $link = $_GET['id'];
 	case 25:
 	include "help.php";
 	break;
+	case 26:
+	include "tambahuser.php";
+	break;
+	case 27:
+	include "prosestambahuser.php";
+	break;
 	case 99:
 	include "hapussemua.php";
 	break;

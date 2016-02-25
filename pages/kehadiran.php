@@ -69,8 +69,18 @@ if ($ambildata==null)
 {}
 else
 {
+	
+	$record = mysql_num_rows($ambildata);
+
+		if ($record>0)
+		{
 echo "<form action='?id=6' method='POST'>";
 echo "<table border='1' class='table-responsive table-bordered table'><tr><th>NAK</th><th>Nama</th><th>Status</th><th>Hapus</th></tr>";
+		}
+		else
+		{
+			echo "Data Belum dimasukan";
+		}
 }
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {
@@ -116,9 +126,19 @@ while($row = mysql_fetch_array($ambildata2, MYSQL_ASSOC))
  
 ?></table>
 
+
+<?php 
+$record = mysql_num_rows($ambildata);
+
+		if ($record>0)
+		{
+?>
 <center>
 <input  class='btn btn-success' type='submit' name='simpan' value='Simpan Absensi' onclick="return confirm('Absensi Selesai?')"/>
 <input class='btn btn-danger' type='submit' name='hapus' value='Hapus Kehadiran' onclick="return confirm('Akan dihapus?')"/>
 <input class='btn btn-danger' type='submit' name='hapus_semua' value='Hapus Semua Data' onclick="return confirm('Akan dihapus?')"/>
 
 </form></center>
+<?php
+	}
+?>

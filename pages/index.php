@@ -221,16 +221,17 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                             
                             <?php
 
-                            if ($_SESSION['nama']=='admin')
+                            if ($_SESSION['level']=='admin')
                             {
 
                             ?>
-                            <li><a href="?id=101"><i class="fa fa-user fa-fw"></i> Input Uang</a>
+                            <li><a href="?id=101"><i class="fa fa-share fa-fw"></i> Input Uang</a>
                             </li>
-                            <li><a href="?id=16"><i class="fa fa-user fa-fw"></i> Tambah Bendahara</a>
+                            <li><a href="?id=16"><i class="fa fa-share fa-fw"></i> Tambah Bendahara</a>
+                            </li>
+                            <li><a href="?id=26"><i class="fa fa-share fa-fw"></i> Tambah User</a>
                             </li>
                             <li><a href="?id=100"><i class="fa fa-trash fa-fw"></i> Hapus Semua Data</a>
-
                             </li>
 
                             <?php

@@ -12,7 +12,7 @@ if(! $koneksi )
 {
   die('Gagal Koneksi: ' . mysql_error());
 }
-$sql = "SELECT * from anggota join user using (nak) where nak='$_SESSION[nak]'";
+$sql = "SELECT user.nak, anggota.nik, anggota.nama, user.password from anggota join user using (nak) where nak='$_SESSION[nak]'";
  
 mysql_select_db('registrasi');
 $ambildata = mysql_query( $sql, $koneksi);

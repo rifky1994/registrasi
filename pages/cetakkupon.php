@@ -26,18 +26,27 @@ mysql_select_db('registrasi');
 
  
 
-
+$sql = "SELECT * from kuasa join anggota using (nak) where status2='HADIR' order by no_kupon";
+$ambildata = mysql_query( $sql, $koneksi);
 echo "<form method=post action='prosescetakkupon.php' target='_blank'>";
+$record = mysql_num_rows($ambildata);
+
+		if ($record>0)
+		{
 echo "<table border='1' class='table-responsive table-bordered table'>
 <tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th><th>Cetak</th></tr>";
+		}
+		else
+		{
+			echo "<br><br><br><br><br>Data Belum ada";
+		}
 $i=1;
 
 
 
 
 
-$sql = "SELECT * from kuasa join anggota using (nak) where status2='HADIR' order by no_kupon";
-$ambildata = mysql_query( $sql, $koneksi);
+
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {
 
@@ -52,10 +61,10 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 			<td>{$row['user']}</td>
 			<td>{$row['id_kuasa']}</td>
 			<td>{$row['waktu']}</td>";
-			if ($row['cetak']==0)
-			{
+			
+			
 			echo "<td><input type='radio' name='hadir' value={$row['nak']}></td>";
-			}
+			
 			echo "</tr>";
 			$i++;
 		
@@ -66,6 +75,14 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 ?>
 </table>
 <center>
+<?php
+if ($record>0)
+		{
+
+?>
 	<input type="submit" value="Cetak" class="btn btn-success" name="cetak_bukti">
+<?php
+		}
+?>
 </center>
 </form>

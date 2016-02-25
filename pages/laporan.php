@@ -64,17 +64,32 @@ $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpass = '';
 $koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
+$konek = mysqli_connect('localhost','root','','registrasi');
 mysql_select_db('registrasi');
+
 $sql = "SELECT * from kehadiran join anggota using (nak) order by no_kupon";
 
  
 
-$ambildata = mysql_query( $sql, $koneksi);
+$ambildata = mysqli_query( $konek,$sql);
+$record = mysqli_num_rows($ambildata);
 
+		if ($record>0)
+		{
 echo "<form method=post action=?id=999><table border='1' class='table-responsive table-bordered table'>
-<tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th><th>Hapus</th></tr>";
+<tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th>";
+if ($_SESSION['level']=='admin')
+	{
+echo "<th>Hapus</th>";
+	}
+echo "</tr>";
+		}
+		else 
+		{
+			echo "Data Belum ada";
+		}
 $i=1;
-while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
+while($row = mysqli_fetch_array($ambildata, MYSQL_ASSOC))
 {
 	
     echo "<tr id=biasa>
@@ -86,12 +101,15 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 	<td>{$row['no_kupon']}</td>
 	<td>{$row['user']}</td>
 	<td>{$row['id_kuasa']}</td>
-	<td>{$row['waktu']}</td>
-	<td><input type=radio name=hapus value={$row['nak']}></td>
-	
+	<td>{$row['waktu']}</td>";
+
+	if ($_SESSION['level']=='admin')
+	{
+	echo "<td><input type=radio name=hapus value={$row['nak']}></td>";
+	}
 
 	
-</tr>";
+echo "</tr>";
 $i++;
 } 
 
@@ -109,17 +127,29 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 	<td>{$row['no_kupon']}</td>
 	<td>{$row['user']}</td>
 	<td>{$row['id_kuasa']}</td>
-	<td>{$row['waktu']}</td>
-	<td><input type=radio name=hapus value={$row['nak']}></td>
+	<td>{$row['waktu']}</td>";
+
+	if ($_SESSION['level']=='admin')
+	{
+	echo "<td><input type=radio name=hapus value={$row['nak']}></td>";
+	}
 
 	
-</tr>";
+echo "</tr>";
 $i++;
 } 
 
 ?>
 </table>
+<?php
+if ($_SESSION['level']=='admin')
+	{
+?>
 <input type="submit" name="hapuss" value="Hapus Data" onclick="return confirm('Data Akan dihapus?')" class="btn btn-danger">
+<?php
+}
+?>
+
 </form>
 <hr>
 

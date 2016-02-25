@@ -31,8 +31,17 @@
 		{
 	  		die('Gagal ambil data: ' . mysql_error());
 		}
+		$record = mysql_num_rows($ambildata);
+		if ($record>0)
+		{
 			echo "<table class='table-responsive table-bordered table'><tr><th>ID</th><th>NAK</th><th>NAMA</th><th>NIK</th></tr>";
+		}
+		else
+		{
+			echo "<br><br><br><br><br> Data anggota tidak ada";
+		}
 			while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
+		
 		{
 	    	echo "<tr><td>{$row['id']}</td><td>{$row['nak']}</td><td>{$row['nama']}</td>
 				<td>{$row['nik']}</td></tr>";

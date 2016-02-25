@@ -16,7 +16,7 @@ $password = $_POST['password'];
 $query = "SELECT * FROM user WHERE nak = '$nak'";
 $hasil = mysql_query($query);
 $data = mysql_fetch_array($hasil);
-echo "$query";
+
 // cek kesesuaian passwordword
 if ($password == $data['password'])
 {
@@ -26,6 +26,7 @@ echo "sukses";
     header('location: index.php');
     $_SESSION['nak'] = $data['nak'];
 	$_SESSION['nama'] = $data['nama'];
+	$_SESSION['level'] = $data['level'];
 	$_SESSION['login']= true;
 	}
 else 

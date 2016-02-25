@@ -24,18 +24,26 @@ $dbpass = '';
 $koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
 mysql_select_db('registrasi');
 
-
+$sql = "SELECT * from kuasa join anggota using (nak) where status2<>'HADIR' order by no_kupon";
+$ambildata = mysql_query( $sql, $koneksi);
  
+$record = mysql_num_rows($ambildata);
 
 
 echo "<form method=post action='?id=19'>";
+if ($record>0)
+{
 echo "<table border='1' class='table-responsive table-bordered table'>
 <tr><th>ID</th><th>Nak</th><th>Nama</th><th>NIK</th><th>Status</th><th>No Kupon</th><th>User</th><th>ID Kuasa</th><th>Waktu</th><th></th></tr>";
+}
+else
+{
+	echo "<br><br><br><br><br> Data tidak ada";
+}
 $i=1;
 
 
-$sql = "SELECT * from kuasa join anggota using (nak) where status2<>'HADIR' order by no_kupon";
-$ambildata = mysql_query( $sql, $koneksi);
+
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {
 	
@@ -59,5 +67,13 @@ $i++;
 ?>
 </table>
 <center>
+<?php
+
+	if ($record>0)
+{
+?>
 	<input type="submit" name="simpan" value="Simpan Absensi" class="btn btn-success"></form>
+<?php
+}
+?>
 </center>
