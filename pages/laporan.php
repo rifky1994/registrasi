@@ -54,8 +54,12 @@ ng.ready( function() {
 </script>
 <center>
 	<form action="print.php" target="_blank">
-		<input type="submit" value="Cetak Laporan" class="btn btn-success">
-		</form>
+		<input type="submit" value="Cetak Laporan (PDF)" class="btn btn-success">
+	</form>
+	<br>
+	<form action="laporan_ekspor.php">
+		<input type="submit" value="Cetak Laporan (Excel)" class="btn btn-success">
+	</form>
 </center>
 <br>
 <?php
@@ -67,7 +71,7 @@ $koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
 $konek = mysqli_connect('localhost','root','','registrasi');
 mysql_select_db('registrasi');
 
-$sql = "SELECT * from kehadiran join anggota using (nak) order by no_kupon";
+$sql = "SELECT * from kehadiran join anggota using (nak) order by jam";
 
  
 
@@ -107,37 +111,39 @@ while($row = mysqli_fetch_array($ambildata, MYSQL_ASSOC))
 	{
 	echo "<td><input type=radio name=hapus value={$row['nak']}></td>";
 	}
-
-	
-echo "</tr>";
-$i++;
-} 
-
-$sql = "SELECT * from kuasa join anggota using (nak) order by no_kupon";
-$ambildata = mysql_query( $sql, $koneksi);
-while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
+	$i++;
+	$sql2 = "SELECT * from kuasa join anggota using (nak) where id_kuasa='{$row['nak']}' order by jam";
+$ambildata2 = mysql_query( $sql2, $koneksi);
+while($row2 = mysql_fetch_array($ambildata2, MYSQL_ASSOC))
 {
 	
     echo "<tr id=biasa>
 	<td>$i</td>
-	<td>{$row['nak']}</td>
-	<td>{$row['nama']}</td>
-	<td>{$row['nik']}</td>
-	<td>{$row['status']}</td>
-	<td>{$row['no_kupon']}</td>
-	<td>{$row['user']}</td>
-	<td>{$row['id_kuasa']}</td>
-	<td>{$row['waktu']}</td>";
+	<td>{$row2['nak']}</td>
+	<td>{$row2['nama']}</td>
+	<td>{$row2['nik']}</td>
+	<td>{$row2['status']}</td>
+	<td>{$row2['no_kupon']}</td>
+	<td>{$row2['user']}</td>
+	<td>{$row2['id_kuasa']}</td>
+	<td>{$row2['waktu']}</td>";
 
 	if ($_SESSION['level']=='admin')
 	{
-	echo "<td><input type=radio name=hapus value={$row['nak']}></td>";
+	echo "<td><input type=radio name=hapus value={$row2['nak']}></td>";
 	}
+	$i++;
+	
+echo "</tr>";
+
+} 
 
 	
 echo "</tr>";
-$i++;
+
 } 
+
+
 
 ?>
 </table>

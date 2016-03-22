@@ -100,8 +100,14 @@ if(isset($_POST['submit'])){
       $nama          = $data->val($i, 3);
       $nik           = $data->val($i, 4);
 
+      $pecah = explode("'", $nama);
+
+
+$tampil = implode("",$pecah);
+
+
 //      setelah data dibaca, masukkan ke tabel pegawai sql
-      $query = "INSERT into anggota (id,nak,nama,nik)values($id,$nak,'$nama','$nik')";
+      $query = "INSERT into anggota (id,nak,nama,nik)values($id,$nak,'$tampil','$nik')";
       $hasil = mysql_query($query);
       
       flush();

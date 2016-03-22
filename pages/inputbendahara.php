@@ -23,9 +23,9 @@ $nik = $row['nik'];
 
 <form action="?id=17" method="post">
 		<table>
-<tr><td><b>NAK</b></td><td class="col-lg-2"></td><td><input type="text"name="nak" size="25" class="form-control" <?php echo "value='$nak'";?></td></tr>
-<tr><td><b>Nama</b></td><td class="col-lg-2"></td><td><input type="text"name="nama" size="25" class="form-control" <?php echo "value='$nama'";?></td></tr>
-<tr><td><b>NIK</b></td><td class="col-lg-2"></td><td><input type="text"name="nik" size="25" class="form-control" <?php echo "value='$nik'";?></td></tr>
+<tr><td><b>NAK</b></td><td class="col-lg-2"></td><td><input type="text"name="nak" size="25" class="form-control" <?php echo "value='$nak'";?> autofocus></td></tr>
+<tr><td><b>Nama</b></td><td class="col-lg-2"></td><td><input type="text"name="nama" size="25" class="form-control" <?php echo "value='$nama'";?>></td></tr>
+<tr><td><b>NIK</b></td><td class="col-lg-2"></td><td><input type="text"name="nik" size="25" class="form-control" <?php echo "value='$nik'";?>></td></tr>
 </table>
 <hr>
 <center>

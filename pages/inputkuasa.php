@@ -7,7 +7,7 @@
 		
 		<div class="col-lg-4 col-md-offset-3">
 			<form method="post" action="?id=20">
-			<input name="cari" type="text" class="form-control" width="200" placeholder="Search">
+			<input name="cari" type="text" class="form-control" width="200" placeholder="Search" autofocus>
 		</div>
 		<div class="col-lg-4">
 				<input type="submit" name="cari_anggota" value="Cari Anggota" class="btn btn-info">

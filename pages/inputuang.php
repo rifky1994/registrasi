@@ -180,7 +180,7 @@ $bayar = $row['bayar'];
 <form action="?id=102" method="post">
 		<table>
 <tr><td><b>Uang Pembayaran</b></td><td class="col-lg-2"></td>
-<td><div id="angka"><input type="text" name="bayar" size="25" class="form-control" <?php echo "value='$bayar'";?> id="inputku" onkeydown="return numbersonly(this, event);" onkeyup="javascript:tandaPemisahTitik(this);"></div></td></tr>
+<td><div id="angka"><input type="text" name="bayar" size="25" class="form-control" <?php echo "value='$bayar'";?> id="inputku" onkeydown="return numbersonly(this, event);" onkeyup="javascript:tandaPemisahTitik(this);" autofocus></div></td></tr>
 </table>
 <hr>
 <center>

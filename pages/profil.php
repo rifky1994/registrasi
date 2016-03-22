@@ -25,7 +25,7 @@ echo "<table>";
 $row = mysql_fetch_array($ambildata, MYSQL_ASSOC);
 echo "<tr><td width='100px'>NAK</td><td width='20px'>:</td><td><input type='text' name='nak' value='{$row[nak]}' readonly='readonly' class='form-control'></td><td>*digunakan untuk login*</td></tr>";
 echo "<tr><td width='100px'>NIK</td><td width='20px'>:</td><td><input type='text' name='nik' value='{$row[nik]}' readonly='readonly' class='form-control'></td></tr>";
-echo "<tr><td width='100px'>NAMA</td><td width='20px'>:</td><td><input type='text' name='nama' value='{$row[nama]}' class='form-control'></td></tr>";
+echo "<tr><td width='100px'>NAMA</td><td width='20px'>:</td><td><input type='text' name='nama' value='{$row[nama]}' class='form-control' autofocus></td></tr>";
 echo "<tr><td width='100px'>Password</td><td width='20px'>:</td><td><input type='text' name='password' value='{$row[password]}' class='form-control'></td><td>*digunakan untuk login*</td></tr>";
 echo "<tr><td colspan='3'><input type='submit' value='Update' name='ubah'  class='btn btn-success'></td></tr>";
 echo "</table>";

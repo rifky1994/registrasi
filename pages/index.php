@@ -231,6 +231,8 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                             </li>
                             <li><a href="?id=26"><i class="fa fa-share fa-fw"></i> Tambah User</a>
                             </li>
+                             <li><a href="?id=29"><i class="fa fa-share fa-fw"></i> Tambah Anggota</a>
+                            </li>
                             <li><a href="?id=100"><i class="fa fa-trash fa-fw"></i> Hapus Semua Data</a>
                             </li>
 

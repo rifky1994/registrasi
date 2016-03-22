@@ -26,12 +26,15 @@ if(! $ambildata )
   die('Gagal ambil data: ' . mysql_error());
 }
 $i=1;
+echo "<form method=post action='?id=19'>";
 echo "<table border='1' class='table-responsive table-bordered table'><tr><th>ID</th><th>NAK</th><th>NAMA</th><th>NIK</th><th>ID Kuasa</th><th>No Kupon</th></tr>";
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {
     echo "<tr><td>$i</td><td>{$row['nak']}</td><td>{$row['nama']}</td>
-			<td>{$row['nik']}</td><td>{$row['id_kuasa']}</td><td>{$row['no_kupon']}</td></tr>";
+			<td>{$row['nik']}</td><td>{$row['id_kuasa']}</td><td>{$row['no_kupon']}</td>";
+      echo "<td><input type='radio' name='hadir' value={$row['nak']}></td></tr>";
 			$i++;
 } 
 
 ?>
+<input type="submit" name="simpan" value="Simpan Absensi" class="btn btn-success"></form>

@@ -27,7 +27,7 @@
 			<tr><td>
 
 			
-			<input type="text" name="nak" size="40" class="form-control" placeholder="NAK / Nama / NIK">
+			<input  type="text" name="nak" size="40" class="form-control" placeholder="NAK / Nama / NIK" autofocus>
 			
 
 			</td><td class="col-md-2"></td>
@@ -75,17 +75,19 @@ else
 		if ($record>0)
 		{
 echo "<form action='?id=6' method='POST'>";
-echo "<table border='1' class='table-responsive table-bordered table'><tr><th>NAK</th><th>Nama</th><th>Status</th><th>Hapus</th></tr>";
+echo "<table border='1' class='table-responsive table-bordered table'><tr><th>No</th><th>NAK</th><th>Nama</th><th>Status</th><th>Hapus</th></tr>";
 		}
 		else
 		{
 			echo "Data Belum dimasukan";
 		}
 }
+$i=1;
 while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 {
 	
     echo "<tr id=biasa>
+    <td>$i</td>
 	<td>{$row['nak']}</td>
 	<td>{$row['nama']}</td>
 	<td>{$row['status']}</td>
@@ -95,6 +97,7 @@ while($row = mysql_fetch_array($ambildata, MYSQL_ASSOC))
 
 	
 </tr>";
+$i++;
 } 
 
 $sql3 = "SELECT id_kuasa from kehadiran where temp=1 and user='$_SESSION[nama]'";
@@ -112,6 +115,7 @@ while($row = mysql_fetch_array($ambildata2, MYSQL_ASSOC))
 {
 	
     echo "<tr id=biasa>
+    <td>$i</td>
 	<td>{$row['nak']}</td>
 	<td>{$row['nama']}</td>
 	<td>{$row['status']}</td>
@@ -121,6 +125,7 @@ while($row = mysql_fetch_array($ambildata2, MYSQL_ASSOC))
 
 	
 </tr>";
+$i++;
 } 
 
  

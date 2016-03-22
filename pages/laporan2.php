@@ -1,9 +1,3 @@
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <b><center>Laporan Kehadiran</center></b>
-    </div>
-  </div>
-
 <?php
 
 $dbhost = 'localhost';
@@ -13,14 +7,7 @@ $koneksi = mysql_connect($dbhost, $dbuser, $dbpass);
 $konek = mysqli_connect('localhost','root','','registrasi');
 mysql_select_db('registrasi');
 
-isset($_POST['cari_laporang']); 
-	$jam1 = $_POST['jam1'];
-	$jam2 = $_POST['jam2'];
-
-
-
-$sql = "SELECT * from kehadiran join anggota using (nak) where jam between '$jam1' and '$jam2' order by no_kupon";
-
+$sql = "SELECT * from kehadiran join anggota using (nak) order by jam";
 
  
 
@@ -75,7 +62,7 @@ while($row2 = mysql_fetch_array($ambildata2, MYSQL_ASSOC))
 
 	
 echo "</tr>";
-
+$i++;
 } 
 
 	
@@ -87,3 +74,5 @@ echo "</tr>";
 
 ?>
 </table>
+
+</form>
